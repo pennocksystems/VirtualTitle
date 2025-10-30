@@ -1,0 +1,16 @@
+# render.yaml
+services:
+  - type: web
+    name: virtualtitle
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: node server.js
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false   # set this in the Render dashboard
+      - key: NODE_VERSION
+        value: 20
