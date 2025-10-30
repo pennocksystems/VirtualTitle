@@ -1,5 +1,4 @@
 // --- DOM Elements ---
-import { fetchClientRecord } from '../data/db.js';
 const chatBody = document.getElementById('chat-body');
 const chatInput = document.getElementById('chat-input');
 const sendBtn = document.getElementById('send-btn');
@@ -59,7 +58,7 @@ function showTypingIndicator(callback, delay = 800) {
   }, delay);
 }
 
-// --- Initial messages (unchanged) ---
+// --- Initial messages ---
 addMessage("Hey there! I'm <strong>Title Tom</strong>.", 'bot', true);
 setTimeout(() => addMessage("I'm here to help you navigate the confusing world of titles.", 'bot', true), 1200);
 setTimeout(() => addMessage("Are you looking for general title information/instructions, or do you have a vehicle title issue with one of our services like SHiFT, Car Donation Wizard, or You Call We Haul?", 'bot', true), 2500);
@@ -130,88 +129,84 @@ const DEBUG = true;
 const dbg = (...args) => DEBUG && console.log(...args);
 
 /* ============================================================
-   🔁 Per-state dynamic loader (robust)
-   - Tries 2-letter and full-name slugs, plus /index.js variants
+   🔁 Per-state dynamic loader (absolute paths)
 ============================================================ */
-
-// Build an inverse map so we can go FullName <-> Abbrev
-const nameToAbbrev = Object.fromEntries(
-  Object.entries(stateMap).map(([abbr, full]) => [full.toLowerCase(), abbr.toLowerCase()])
-);
-
-// Produce candidate module paths to try in order (most common first)
-function buildStateModuleCandidates(stateNameOrAbbrev) {
-  const raw = (stateNameOrAbbrev || '').trim();
+function buildStateModuleCandidates(stateName) {
+  const raw = (stateName || '').trim();
   if (!raw) return [];
+  const full = stateMap[raw.toUpperCase()] || raw;
+  const fullSlug = full.toLowerCase().replace(/\s+/g, '-');
+  const abbr = Object.entries(stateMap).find(([, v]) => v === full)?.[0]?.toLowerCase() || '';
 
-  // Normalize to full name and abbrev if we can
-  const upper = raw.toUpperCase();
-  const full = stateMap[upper] || raw; // handles "AL" or "Alabama"
-  const fullSlug = full.toLowerCase().replace(/\s+/g, '-'); // "New York" -> "new-york"
-  const abbr = nameToAbbrev[full.toLowerCase()] || upper.toLowerCase(); // "alabama"->"al" else keep what we got
-
-  // Try both filename forms and folder index forms
   return [
-    `./states/${fullSlug}.js`,
-    `./states/${fullSlug}/index.js`,
-    `./states/${abbr}.js`,
-    `./states/${abbr}/index.js`,
-  ];
+    `/states/${fullSlug}.js`,
+    `/states/${fullSlug}/index.js`,
+    abbr ? `/states/${abbr}.js` : null,
+    abbr ? `/states/${abbr}/index.js` : null,
+  ].filter(Boolean);
 }
 
 async function loadStateModule(stateName) {
   const candidates = buildStateModuleCandidates(stateName);
-
   let lastErr = null;
-  for (const path of candidates) {
+  for (const p of candidates) {
     try {
-      const mod = await import(path);
-      if (typeof mod.default !== 'function') {
-        console.warn(`State module ${path} loaded but has no default() export`);
-        continue;
-      }
-      currentStateModule = mod.default();
-      console.log(`✅ Loaded state module: ${path}`, currentStateModule);
+      const mod = await import(p);
+      currentStateModule = typeof mod.default === 'function' ? mod.default() : mod;
+      console.log(`✅ Loaded state module: ${p}`, currentStateModule);
       return;
     } catch (e) {
       lastErr = e;
-      // 404s are expected while probing—log at debug level only
-      console.debug(`Tried ${path} -> ${e?.message || e}`);
+      console.debug(`Tried ${p} -> ${e?.message || e}`);
     }
   }
-
-  console.error(
-    `⚠️ Could not load any state module for "${stateName}". Tried:\n${candidates.join('\n')}\nLast error:`,
-    lastErr
-  );
+  console.error(`⚠️ No state module found for "${stateName}". Tried:\n${candidates.join('\n')}\n`, lastErr);
   currentStateModule = null;
 }
 
 /* ============================================================
-   🔌 CSV Mock DB Loader (no ES module needed)
-   - Works if:
-     1) window.fetchClientRecord is exposed by /data/db.js, OR
-     2) dynamic import('/data/db.js') is available.
+   🔌 Record check helpers
+   1) Try server route /check-client (best for Render)
+   2) Fallback to client CSV parser at /data/db.js if needed
 ============================================================ */
-async function getFetchClientRecord() {
-  if (typeof window.fetchClientRecord === 'function') {
-    return window.fetchClientRecord;
-  }
+function normalizePhone(raw) { return (raw || '').replace(/[^\d]/g, ''); }
+function looksLikeEmail(v) { return /@/.test(v); }
+
+async function fetchRecordViaServer(identifier) {
+  const body = looksLikeEmail(identifier)
+    ? { email: identifier }
+    : { phone: normalizePhone(identifier) };
+
+  const resp = await fetch('/check-client', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!resp.ok) throw new Error(`Server /check-client ${resp.status}`);
+  const data = await resp.json();
+  return data.match ? data.data : null;
+}
+
+async function fetchRecordViaCSV(identifier) {
   try {
-    const mod = await import('/data/db.js'); // absolute to avoid path confusion
-    return mod.fetchClientRecord || mod.default || null;
+    const mod = await import('/data/db.js'); // served statically by Express
+    const fn = mod.fetchClientRecord || mod.default;
+    if (typeof fn !== 'function') return null;
+    return await fn(identifier);
   } catch (e) {
-    console.error('Could not load /data/db.js via dynamic import:', e);
+    console.warn('CSV fallback import failed:', e);
     return null;
   }
 }
 
-function normalizePhone(raw) {
-  return (raw || '').replace(/[^\d]/g, '');
-}
-
-function looksLikeEmail(v) {
-  return /@/.test(v);
+async function fetchClientRecordSmart(identifier) {
+  try {
+    const rec = await fetchRecordViaServer(identifier);
+    if (rec) return rec;
+  } catch (e) {
+    console.warn('Server record check failed, trying CSV fallback…', e);
+  }
+  return await fetchRecordViaCSV(identifier);
 }
 
 // --- Core flow handlers ---
@@ -236,27 +231,27 @@ async function handleUserResponse() {
   }
 
   // --- Record Check Mode ---
-if (recordCheckMode) {
-  recordCheckMode = false;
-  addMessage(userText, 'user');
-  chatInput.value = '';
+  if (recordCheckMode) {
+    recordCheckMode = false;
+    addMessage(userText, 'user');
+    chatInput.value = '';
 
-  const record = await fetchClientRecord(userText); // email or phone
-  if (record) {
-    pendingClientData = record;
-    verificationMode = true;
-    addMessage(
-      "📧 We've sent a 4-digit code to the email address you provided. Please type that code here to verify access (DEMO CODE:<strong>0000</strong>).",
-      'bot',
-      true
-    );
-  } else {
-    addMessage("❌ No record found for that contact. No worries — let's continue manually.", 'bot');
-    currentQuestionIndex = 2;
-    setTimeout(() => addStateInput(), 1000);
+    const record = await fetchClientRecordSmart(userText); // email or phone
+    if (record) {
+      pendingClientData = record;
+      verificationMode = true;
+      addMessage(
+        "📧 We've sent a 4-digit code to the email address you provided. Please type that code here to verify access (DEMO CODE:<strong>0000</strong>).",
+        'bot',
+        true
+      );
+    } else {
+      addMessage("❌ No record found for that contact. No worries — let's continue manually.", 'bot');
+      currentQuestionIndex = 2;
+      setTimeout(() => addStateInput(), 1000);
+    }
+    return;
   }
-  return;
-}
 
   // --- AI mode ---
   if (aiMode) {
@@ -457,7 +452,7 @@ function getPersonalizedMessage(text) {
   if (!saidNiceToMeetYou && answers.name) {
     saidNiceToMeetYou = true;
     return `Nice to meet you, ${answers.name}. ${text}`;
-    }
+  }
   return text;
 }
 

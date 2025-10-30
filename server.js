@@ -1,7 +1,6 @@
-// server.js
 import express from "express";
 import cors from "cors";
-import fetch from "node-fetch"; // OK with Node 18+, keeps your original structure
+import fetch from "node-fetch";
 import dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
@@ -14,69 +13,47 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// --- Resolve __dirname in ESM ---
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// === Static file serving (matches your current repo structure) ===
-// Serve the project root (index.html, script.js, style.css)
-app.use(express.static(__dirname, { extensions: ["html"] }));
+// ✅ Serve the frontend from /public as the web root
+app.use(express.static(path.join(__dirname, "public")));
 
-// Serve feature folders explicitly
+// ✅ Also expose states and data
 app.use("/states", express.static(path.join(__dirname, "states")));
 app.use("/data", express.static(path.join(__dirname, "data")));
-app.use("/icons", express.static(path.join(__dirname, "icons")));
 
-// Root route → index.html in project root
+// Root -> serve public/index.html
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Optional: simple health check
-app.get("/healthz", (req, res) => res.json({ ok: true }));
-
-// ✅ Client record lookup route (with logging)
+// ✅ Client record lookup (server-side CSV read)
 app.post("/check-client", (req, res) => {
-  const { phone, email } = req.body || {};
+  const { phone, email } = req.body;
   const results = [];
 
-  console.log("🔍 Incoming /check-client request:", req.body);
+  console.log("🔍 /check-client:", req.body);
 
-  const csvPath = path.join(__dirname, "data", "client_data.csv");
-  if (!fs.existsSync(csvPath)) {
-    console.error("❌ CSV not found at:", csvPath);
-    return res.status(500).json({ error: "client_data.csv not found" });
-  }
-
-  const normPhone = (v) => (v || "").replace(/\D/g, "");
-  const inputPhone = normPhone(phone);
-  const inputEmail = (email || "").toLowerCase();
-
-  fs.createReadStream(csvPath)
+  fs.createReadStream(path.join(__dirname, "data", "client_data.csv"))
     .pipe(csv())
-    .on("data", (row) => {
-      // Your CSV headers:
-      // client first name,client last name,client email,client phone,vehicle year,vehicle make,vehicle model,city,state,zip-code,internal title status,title remedy
-      try {
-        const csvPhone = normPhone(row["client phone"]);
-        const csvEmail = (row["client email"] || "").toLowerCase();
+    .on("data", (data) => {
+      const csvPhone = data["client phone"]?.replace(/\D/g, "");
+      const csvEmail = data["client email"]?.toLowerCase();
+      const inputPhone = phone?.replace(/\D/g, "");
+      const inputEmail = email?.toLowerCase();
 
-        if (
-          (inputPhone && csvPhone && csvPhone === inputPhone) ||
-          (inputEmail && csvEmail && csvEmail === inputEmail)
-        ) {
-          console.log("✅ Match found:", row);
-          results.push(row);
-        }
-      } catch (e) {
-        console.warn("⚠️ Row parse issue:", e);
+      if (
+        (inputPhone && csvPhone && csvPhone === inputPhone) ||
+        (inputEmail && csvEmail && csvEmail === inputEmail)
+      ) {
+        results.push(data);
       }
     })
     .on("end", () => {
       if (results.length > 0) {
         res.json({ match: true, data: results[0] });
       } else {
-        console.log("❌ No match found for:", email || phone);
         res.json({ match: false });
       }
     })
@@ -86,17 +63,12 @@ app.post("/check-client", (req, res) => {
     });
 });
 
-// 🔁 OpenAI chat route (keeps your constraints & behavior)
+// 🔁 OpenAI chat route (same behavior you had)
 app.post("/chat", async (req, res) => {
   try {
-    const { userMessage } = req.body || {};
-    if (!userMessage || typeof userMessage !== "string") {
-      return res.status(400).json({ error: "Missing userMessage" });
-    }
-
+    const { userMessage } = req.body;
     const lowerMsg = userMessage.toLowerCase();
 
-    // --- Local AL form library (same structure you had) ---
     const formLibrary = {
       "mvt-5-13": {
         label: "MVT-5-13 Form (Alabama)",
@@ -121,9 +93,9 @@ app.post("/chat", async (req, res) => {
     };
 
     const normalizeForMatch = (s) =>
-      (s || "")
+      s
         .toLowerCase()
-        .replace(/[\u2010\u2011\u2012\u2013\u2014\u2015\u2212\uFE58\uFE63\uFF0D\u2043\u002D]/g, "-")
+        .replace(/[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D\u2043-]/g, "-")
         .replace(/[\s_]+/g, "-")
         .trim();
 
@@ -160,7 +132,6 @@ app.post("/chat", async (req, res) => {
       });
     }
 
-    // --- Otherwise, call OpenAI normally (same constraints) ---
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -175,25 +146,9 @@ app.post("/chat", async (req, res) => {
           {
             role: "system",
             content: `
-You are "Title Tom" — a friendly, professional title specialist for the state of Alabama. 
-You help users understand and resolve vehicle title issues in clear, straightforward language.
-Keep responses concise (3–5 sentences or about 500 characters).
-
-Whenever it fits naturally, you may mention trusted partners like:
- - You Call We Haul (https://www.youcallwehaul.com/) for fast vehicle pickup and removal.
- - Advanced Remarketing Services (https://www.arscars.com/) for remarketing and title management.
- - SHiFT (https://shift4tomorrow.org/) for sustainable vehicle recycling and EV education.
- - Car Donation Wizard (https://www.cardonationwizard.com/) for charitable vehicle donations.
-
-Integrate mentions gently and only when relevant — never force or repeat them. 
-Do not fabricate information.
-
-If a user asks about ANYTHING unrelated to vehicle titles, ownership, registration, or these services, 
-respond exactly with:
-"I'm here to provide you with real-time information regarding your title questions. Was there something else I could help you with?"
-
-Do not attempt to answer or comment on unrelated topics.
-Keep responses concise (no more than 3–5 sentences) and professional.
+              You are "Title Tom" — a friendly, professional title specialist for the state of Alabama.
+              Keep responses concise (3–5 sentences). Only answer title-related questions; otherwise reply:
+              "I'm here to provide you with real-time information regarding your title questions. Was there something else I could help you with?"
             `,
           },
           { role: "user", content: userMessage },
@@ -202,16 +157,13 @@ Keep responses concise (no more than 3–5 sentences) and professional.
     });
 
     const data = await response.json();
-    const aiReply =
-      data?.choices?.[0]?.message?.content || "Sorry, I couldn’t get a response.";
-
-    return res.json({ reply: aiReply });
+    const aiReply = data?.choices?.[0]?.message?.content || "Sorry, I couldn’t get a response.";
+    res.json({ reply: aiReply });
   } catch (error) {
     console.error("❌ OpenAI fetch error:", error);
-    return res.status(500).json({ error: "Error contacting OpenAI" });
+    res.status(500).json({ error: "Error contacting OpenAI" });
   }
 });
 
-// --- Start server ---
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
