@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Title Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-state="">
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="header-left">
+        <img src="/icons/titleagentlogo.png" alt="Title Tom avatar" class="bot-avatar" />
+        <div class="header-text">
+          <h1>Title Tom</h1>
+          <p>Your Vehicle Title Assistant</p>
+        </div>
+        <!-- 🔹 State Pill (hidden until JS sets it) -->
+        <span id="state-pill" class="state-pill hidden" aria-live="polite"></span>
+      </div>
+
+      <div class="header-right">
+        <span class="status-dot"></span> Online
+        <!-- 🌙 Dark Mode Toggle -->
+        <button id="dark-toggle" title="Toggle Dark Mode" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+
+    <div class="chat-body" id="chat-body" aria-live="polite" aria-relevant="additions">
+      <!-- Chat messages will go here -->
+    </div>
+
+    <!-- 🔹 Optional inline input mount point for state entry/dropdown (controlled by JS) -->
+    <div id="inline-input-mount" class="hidden"></div>
+
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type your answer..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

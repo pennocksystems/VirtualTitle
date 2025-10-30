@@ -1,0 +1,420 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Utility */
+.hidden { display: none !important; }
+
+.chat-container {
+    width: 95%; /* Almost full width */
+    max-width: 900px; /* Increased from 600px */
+    height: 90vh; /* Takes most of the screen height */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto; /* Center on large screens */
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Left side (logo + title) */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bot-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 4px;
+  object-fit: contain;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #dbeafe;
+  letter-spacing: 0.2px;
+}
+
+/* 🔹 State Pill (appears when JS fills it) */
+.state-pill {
+  margin-left: 8px;
+  padding: 4px 8px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* Right side (status indicator) */
+.header-right {
+  font-size: 0.8rem;
+  color: #e0e7ff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background: #22c55e; /* green for online */
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.bot-message,
+.user-message {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  max-width: 78%;
+  line-height: 1.4;
+  font-size: 15px;
+  clear: both;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.25s ease;
+}
+
+.bot-message {
+  background: #f1f3f5; /* softer gray */
+  color: #111827;
+  float: left;
+  border-bottom-left-radius: 4px; /* subtle asymmetry for realism */
+}
+
+.user-message {
+  background: #2563eb; /* deeper, modern blue */
+  color: #ffffff;
+  float: right;
+  border-bottom-right-radius: 4px;
+}
+
+/* Smooth appearance animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional small tail effect for chat realism */
+.bot-message::after,
+.user-message::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+}
+
+.bot-message::after {
+  left: -6px;
+}
+
+.user-message::after {
+  right: -6px;
+}
+
+/* Improve spacing between messages */
+#chat-body {
+  padding: 20px;
+  background: #f8fafc;
+  overflow-y: auto;
+}
+
+.chat-footer {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    font-size: 1rem;
+}
+
+.chat-footer button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.chat-footer button:hover {
+    background: #0056b3;
+}
+
+.back-link {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Label styling */
+.dropdown-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dropdown styling */
+.dropdown-select {
+  width: 100%;
+  max-width: 280px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 2px solid #007bff; /* Bootstrap-ish blue */
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.dropdown-select:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0,123,255,0.6);
+}
+
+/* Options grid */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(40px, auto);
+  gap: 12px;
+  justify-content: center;
+  margin: 12px auto;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.option-btn {
+  padding: 10px 14px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  white-space: normal;
+  text-align: center;
+}
+
+.option-btn:hover {
+  background-color: #0056b3;
+}
+
+.intro-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.intro-btn {
+  padding: 10px 16px;
+  font-size: 16px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.intro-btn:hover {
+  background-color: #e5e7eb;
+}
+
+/* Typing Dots */
+.typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: #eee;
+  border-radius: 16px;
+  width: fit-content;
+  margin: 6px 0;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.typing .dot {
+  width: 6px;
+  height: 6px;
+  background: #555;
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+.typing .dot:nth-child(2) { animation-delay: 0.2s; }
+.typing .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Dark Mode Toggle Button === */
+#dark-toggle {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 6px 10px;
+  transition: all 0.25s ease;
+}
+
+#dark-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+/* Keep consistent placement in header */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+/* Green online dot */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* === Dark Mode Global Theme === */
+body.dark {
+  background: #0f172a; /* deep navy background */
+  color: #e2e8f0;
+}
+
+/* Chat container background and shadow */
+body.dark .chat-container {
+  background: #1e293b; /* dark slate */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Header gradient */
+body.dark .chat-header {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+/* Chat body (main message area) */
+body.dark .chat-body {
+  background: #1e293b;
+}
+
+/* Message bubbles */
+body.dark .bot-message {
+  background: #334155;
+  color: #f1f5f9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+body.dark .user-message {
+  background: #5b4b8a; /* keep blue accent */
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Footer / input area */
+body.dark .chat-footer {
+  background: #1e293b;
+  border-top: 1px solid #475569;
+}
+
+body.dark #chat-input {
+  background: #334155;
+  color: #f1f5f9;
+  border: none;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
+}
+
+body.dark #chat-input::placeholder {
+  color: #94a3b8;
+}
+
+body.dark #send-btn {
+  background: #5b4b8a;
+  color: #ffffff;
+}
+
+body.dark #send-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Dark mode toggle button appearance */
+body.dark #dark-toggle {
+  background: rgba(255,255,255,0.1);
+  color: #e0e7ff;
+}
