@@ -1,5 +1,5 @@
 // --- DOM Elements ---
-import { fetchClientRecord } from './data/db.js';
+import { fetchClientRecord } from '../data/db.js';
 const chatBody = document.getElementById('chat-body');
 const chatInput = document.getElementById('chat-input');
 const sendBtn = document.getElementById('send-btn');
