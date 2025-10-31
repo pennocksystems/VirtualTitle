@@ -1,3 +1,4 @@
+// server.js
 import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
@@ -16,19 +17,35 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ✅ Serve the frontend from /public as the web root
+// Warn if OPENAI_API_KEY is missing (don’t crash in demos)
+if (!process.env.OPENAI_API_KEY) {
+  console.warn("⚠️  OPENAI_API_KEY is not set. /chat will return an error until you add it.");
+}
+
+/* =========================
+   Static file hosting
+   ========================= */
+
+// Serve the frontend from /public (this becomes your web root)
 app.use(express.static(path.join(__dirname, "public")));
 
-// ✅ Also expose states and data
-app.use("/states", express.static(path.join(__dirname, "states")));
+// Expose public subfolders explicitly (handy for clarity & CORS/debugging)
+app.use("/states", express.static(path.join(__dirname, "public", "states")));
+app.use("/icons", express.static(path.join(__dirname, "public", "icons")));
+
+// Expose non-public assets via explicit prefixes
 app.use("/data", express.static(path.join(__dirname, "data")));
+app.use("/forms", express.static(path.join(__dirname, "forms"))); // optional if you have PDFs
 
 // Root -> serve public/index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// ✅ Client record lookup (server-side CSV read)
+/* =========================
+   API: Client record lookup
+   ========================= */
+
 app.post("/check-client", (req, res) => {
   const { phone, email } = req.body;
   const results = [];
@@ -63,12 +80,20 @@ app.post("/check-client", (req, res) => {
     });
 });
 
-// 🔁 OpenAI chat route (same behavior you had)
+/* =========================
+   API: OpenAI chat (form-aware)
+   ========================= */
+
 app.post("/chat", async (req, res) => {
   try {
     const { userMessage } = req.body;
+    if (!userMessage) {
+      return res.status(400).json({ error: "userMessage is required" });
+    }
+
     const lowerMsg = userMessage.toLowerCase();
 
+    // Local form library (same concept as client-side)
     const formLibrary = {
       "mvt-5-13": {
         label: "MVT-5-13 Form (Alabama)",
@@ -99,8 +124,8 @@ app.post("/chat", async (req, res) => {
         .replace(/[\s_]+/g, "-")
         .trim();
 
+    // Try to match known form codes or labels
     let matchedForm = null;
-
     for (const [code, meta] of Object.entries(formLibrary)) {
       const normCode = normalizeForMatch(code);
       if (
@@ -113,6 +138,7 @@ app.post("/chat", async (req, res) => {
       }
     }
 
+    // Keyword fallback (e.g., “power of attorney”)
     if (!matchedForm) {
       const keywordMap = [
         { keyword: "power of attorney", code: "mvt-5-13" },
@@ -125,6 +151,7 @@ app.post("/chat", async (req, res) => {
       if (found) matchedForm = { code: found.code, meta: formLibrary[found.code] };
     }
 
+    // If a match is found, skip OpenAI and return form link
     if (matchedForm) {
       const { label, path } = matchedForm.meta;
       return res.json({
@@ -132,6 +159,14 @@ app.post("/chat", async (req, res) => {
       });
     }
 
+    // If no API key, return a friendly error
+    if (!process.env.OPENAI_API_KEY) {
+      return res
+        .status(500)
+        .json({ error: "OpenAI API key not configured on the server." });
+    }
+
+    // Otherwise call OpenAI
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -147,7 +182,8 @@ app.post("/chat", async (req, res) => {
             role: "system",
             content: `
               You are "Title Tom" — a friendly, professional title specialist for the state of Alabama.
-              Keep responses concise (3–5 sentences). Only answer title-related questions; otherwise reply:
+              Keep responses concise (3–5 sentences).
+              Only answer title-related questions; otherwise reply exactly:
               "I'm here to provide you with real-time information regarding your title questions. Was there something else I could help you with?"
             `,
           },
@@ -164,6 +200,10 @@ app.post("/chat", async (req, res) => {
     res.status(500).json({ error: "Error contacting OpenAI" });
   }
 });
+
+/* =========================
+   Start server
+   ========================= */
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
