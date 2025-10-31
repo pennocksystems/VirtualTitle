@@ -473,7 +473,10 @@ async function callOpenAI(userMessage) {
     const res = await fetch('/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userMessage })
+      body: JSON.stringify({
+        userMessage,
+        state: answers?.state || (statePill?.textContent || "").trim() || ""
+      })
     });
     const data = await res.json();
     chatBody.lastChild.remove();
