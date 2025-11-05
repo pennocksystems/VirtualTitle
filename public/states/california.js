@@ -58,37 +58,39 @@ export default function () {
     `,
 
     "No Title or Missing Title": `
-      Lost your title in California? You can easily apply for a duplicate through the DMV.
-      <ul>
-        <li>
-          Apply online or in person using the
-          <strong>REG 227 - Application for Duplicate or Paperless Title</strong>:
-          <a href="https://www.dmv.ca.gov/portal/file/application-for-duplicate-or-paperless-title-reg-227-pdf/"
-             target="_blank"
-             style="color:#3b82f6;text-decoration:underline;">
-             Download Form
-          </a>
-        </li>
-        <li>
-          You may also need to submit a
-          <strong>REG 256 - Statement of Facts</strong>:
-          <a href="https://www.dmv.ca.gov/portal/file/statement-of-facts-reg-256-pdf/"
-             target="_blank"
-             style="color:#3b82f6;text-decoration:underline;">
-             Download Here
-          </a>
-        </li>
-        <li>
-          Visit the official
-          <strong>California DMV Title Replacement</strong> page for more info:
-          <a href="https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-replacement/"
-             target="_blank"
-             style="color:#3b82f6;text-decoration:underline;">
-             Click Here
-          </a>
-        </li>
-      </ul>
-    `,
+  Lost your title in California? You can easily apply for a duplicate through the DMV.
+  <ul>
+    <li>
+      Apply online or in person using the
+      <strong>REG 227 - Application for Duplicate or Paperless Title</strong>:
+      <a href="https://www.dmv.ca.gov/portal/file/application-for-duplicate-or-paperless-title-reg-227-pdf/"
+         target="_blank"
+         style="color:#3b82f6;text-decoration:underline;">
+         Download Form
+      </a>
+    </li>
+    <li>
+      You may also need to submit a
+      <strong>REG 256 - Statement of Facts</strong>:
+      <a href="https://www.dmv.ca.gov/portal/file/statement-of-facts-reg-256-pdf/"
+         target="_blank"
+         style="color:#3b82f6;text-decoration:underline;">
+         Download Here
+      </a>
+    </li>
+    <li>
+      Visit the official
+      <strong>California DMV Title Replacement</strong> page for more info:
+      <a href="https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-replacement/"
+         target="_blank"
+         style="color:#3b82f6;text-decoration:underline;">
+         Click Here
+      </a>
+    </li>
+  </ul>
+  <br>
+  Considering donating your vehicle? We can guide you through the titling process above, and completing the donation intake! Send us an email today titles@arscars.com with your stock number to get started!
+`,
 
     "How to Get Title for Deceased Owner": `
       When a vehicle owner has passed away in California, the process depends on the estate type.
