@@ -58,35 +58,37 @@ export default function () {
     `,
 
     "No Title or Missing Title": `
-      Looking for some ways to obtain a duplicate title? Here are some possible remediations to help!
-      <ul>
-        <li>
-          You can apply for a duplicate title directly through the
-          <strong>Alabama Department of Revenue</strong>:
-          <a href="https://www.revenue.alabama.gov/division/motor-vehicle/"
-             target="_blank"
-             style="color:#3b82f6;text-decoration:underline;">
-             Click Here
-          </a>
-        </li>
-        <li>
-          Fill out your MVT-12-1 Form:
-          <a href="https://www.formalu.com/forms/506/application-for-replacement-title"
-             target="_blank"
-             style="color:#3b82f6;text-decoration:underline;">
-             Click Here
-          </a>
-        </li>
-        <li>
-          For additional Alabama resources, visit the RMV website:
-          <a href="https://www.revenue.alabama.gov/faqs/how-do-i-apply-for-a-replacement-title/"
-             target="_blank"
-             style="color:#3b82f6;text-decoration:underline;">
-             Click Here
-          </a>
-        </li>
-      </ul>
-    `,
+  Looking for some ways to obtain a duplicate title? Here are some possible remediations to help!
+  <ul>
+    <li>
+      You can apply for a duplicate title directly through the
+      <strong>Alabama Department of Revenue</strong>:
+      <a href="https://www.revenue.alabama.gov/division/motor-vehicle/"
+         target="_blank"
+         style="color:#3b82f6;text-decoration:underline;">
+         Click Here
+      </a>
+    </li>
+    <li>
+      Fill out your MVT-12-1 Form:
+      <a href="https://www.formalu.com/forms/506/application-for-replacement-title"
+         target="_blank"
+         style="color:#3b82f6;text-decoration:underline;">
+         Click Here
+      </a>
+    </li>
+    <li>
+      For additional Alabama resources, visit the RMV website:
+      <a href="https://www.revenue.alabama.gov/faqs/how-do-i-apply-for-a-replacement-title/"
+         target="_blank"
+         style="color:#3b82f6;text-decoration:underline;">
+         Click Here
+      </a>
+    </li>
+  </ul>
+  <br>
+  Considering donating your vehicle? We can guide you through the titling process above, and completing the donation intake! Send us an email today titles@arscars.com with your stock number to get started!
+`,
 
     // Stubs (you can replace with AL content or leave generic)
     "How to Get Title for Deceased Owner": `
