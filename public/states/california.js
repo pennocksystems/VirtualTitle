@@ -4,23 +4,39 @@ export default function () {
   const formLibrary = {
     "reg-227": {
       label: "REG 227 - Application for Duplicate or Paperless Title (California)",
-      path: "https://www.dmv.ca.gov/portal/file/application-for-duplicate-or-paperless-title-reg-227-pdf/"
+      path: "https://www.dmv.ca.gov/portal/file/reg-227-pdf/?mod=ajperes&amp;convert_to=url&amp;cacheid=rootworkspace-f1222e75-f3ab-4309-ae11-48832af0e72d-maqyvf7"
     },
     "reg-262": {
       label: "REG 262 - Vehicle/Vessel Transfer and Reassignment Form",
-      path: "https://www.dmv.ca.gov/portal/file/vehiclevessel-transfer-and-reassignment-form-reg-262-pdf/"
+      path: "https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/odometer-mileage-reporting/vehicle-vessel-transfer-and-reassignment-form-reg-262/"
     },
     "reg-256": {
       label: "REG 256 - Statement of Facts",
-      path: "https://www.dmv.ca.gov/portal/file/statement-of-facts-reg-256-pdf/"
+      path: "https://www.dmv.ca.gov/portal/file/statement-of-facts-reg-256-pdf/?mod=ajperes&cvid="
     },
-    "reg-156": {
-      label: "REG 156 - Application for Replacement Plates, Stickers, Documents",
-      path: "https://www.dmv.ca.gov/portal/file/application-for-replacement-plates-stickers-documents-reg-156-pdf/"
+    "reg-260": {
+      label: "REG 260 - Power of Attorney",
+      path: "https://poaform.org/wp-content/uploads/2013/12/california-dmv-power-of-attorney-form-reg260.pdf"
     },
     "reg-5": {
       label: "REG 5 - Affidavit for Transfer Without Probate (CA)",
-      path: "https://www.dmv.ca.gov/portal/file/affidavit-for-transfer-without-probate-reg-5-pdf/"
+      path: "https://www.dmv.ca.gov/portal/uploads/2020/06/reg5-2.pdf"
+    },
+    "reg-488C": {
+      label: "REG 488C - Application for Salvage Certificate or Nonrepairable Vehicle",
+      path: "https://www.dmv.ca.gov/portal/uploads/2020/03/reg488c.pdf"
+    },
+    "reg-492": {
+      label: "REG 492 - Unobtainable Title Certification for Issuance of Salvage Certificate",
+      path: "https://www.dmv.ca.gov/portal/uploads/2020/04/reg492.pdf"
+    },
+    "reg-31": {
+      label: "REG 31 - Verification of Vehicle (Not to be completed by applicant)",
+      path: "https://www.dmv.ca.gov/portal/uploads/2020/06/reg31.pdf"
+    },
+    "23.010": {
+      label: "Diligent Effort Process 23.010",
+      path: "https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/bonds-and-certifications/diligent-effort-process/"
     }
   };
 
