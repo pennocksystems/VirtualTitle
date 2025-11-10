@@ -146,7 +146,7 @@ export default function () {
         <li>Obtain a signed lien release from the lender on official letterhead or use the lien release section on the title.</li>
         <li>Ensure the lender has sent an electronic title release (if applicable) to the DMV.</li>
         <li>See details:
-          <a href="https://www.dmv.ca.gov/portal/vehicle-registration/title-transfer/lien-satisfaction-release/"
+          <a href="https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/notice-of-transfer-and-release-of-liability-nrl/"
              target="_blank"
              style="color:#3b82f6;text-decoration:underline;">
              DMV Lien Release Info
