@@ -114,7 +114,7 @@ export default function () {
         <li>
           If no probate is needed, use the
           <strong>REG 5 - Affidavit for Transfer Without Probate</strong>:
-          <a href="https://www.dmv.ca.gov/portal/file/affidavit-for-transfer-without-probate-reg-5-pdf/"
+          <a href="https://www.dmv.ca.gov/portal/uploads/2025/02/REG-5-R12-2024-ASB-WWW.pdf"
              target="_blank"
              style="color:#3b82f6;text-decoration:underline;">
              Download Here
