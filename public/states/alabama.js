@@ -92,9 +92,28 @@ export default function () {
 
     // Stubs (you can replace with AL content or leave generic)
     "How to Get Title for Deceased Owner": `
-      For transfers when the owner is deceased in Alabama, requirements can vary by estate situation.
-      Common documents include a death certificate, Letters of Administration / Testamentary, and the title.
-      If you share a bit more context, I can point you to the right steps and forms.
+      When a vehicle owner has passed away in Alabama, the process to obtain a title depends on the estate situation.
+      <ul>
+        <li>
+          Some common required documents include (but are not limited to) a death certificate, letters of administration/testamentary, and the existing title.
+          In Alabama, the Department of Revenue requires the
+          <strong>MVT 5-6</strong>:
+          <a href="https://drive.google.com/file/d/1oWm0T7w9C0UsaNcw5S0nt5pYWzmRBTrW/view"
+             target="_blank"
+             style="color:#3b82f6;text-decoration:underline;">
+             Download Here
+          </a>
+        </li>
+        <li>Include the title (if available), death certificate, and odometer disclosure.</li>
+        <li>If probate applies, court documents authorizing transfer may be required.</li>
+        <li>For more information, please refer to the Department of Revenue's website:
+          <a href="https://www.revenue.alabama.gov"
+          target="_blank"
+          style="color:#3b82f6;text-decoration:underline;">
+          Click Here
+        </a>
+      </li>
+      </ul>
     `,
     "Applying for Salvage/Nonrepairable Titles": `
       In Alabama, salvage or nonrepairable titles are issued through the Department of Revenue.
