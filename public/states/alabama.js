@@ -97,12 +97,17 @@ export default function () {
       If you share a bit more context, I can point you to the right steps and forms.
     `,
     "Applying for Salvage/Nonrepairable Titles": `
-      Interested in applying for a <em>salvage</em> or <em>nonrepairable</em> title?
+      In Alabama, salvage or nonrepairable titles are issued through the Department of Revenue.
       <ul>
-        <li>Vehicles <strong>35 years or older</strong> are EXEMPT</li>
-        <li>$15 application fee</li>
-        <li>Turnaround: 2–4 weeks</li>
-        <li>Use <strong>MVT-41-1</strong> application</li>
+        <li>Owners must complete the <strong>MVT-41-1</strong> Application.</li>
+        <li>There is typically a $15 application fee.</li>
+        <li>Learn more at:
+          <a href="https://drive.google.com/file/d/1J3jB9wuNE0l4zqxgvIumvRehJmtwF7g8/view"
+            target="blank"
+            style="color:#3b82f6;text-decoration:underline;">
+            Department of Revenue: MVT-41-1
+          </a>
+        </li>
       </ul>
     `,
     "Lien Release": `
