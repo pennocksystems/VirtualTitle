@@ -130,16 +130,17 @@ export default function () {
       </ul>
     `,
     "Lien Release": `
-      To release a lien in Alabama, you'll typically need a lien release letter from the lienholder and the properly assigned title.
-      If you tell me your situation, I can suggest the exact next steps.
-    `,
-    "General Information": `
-      Want to ask broad title questions?
-      Try:
+      To release a lien in Alabama you'll need:
       <ul>
-        <li>Age exemption rules</li>
-        <li>Role of mileage in transfers</li>
-        <li>License plate handling after sale</li>
+        <li>A lien release letter from the lienholder.</li>
+        <li>Ensure the lender has properly signed the title & sent an electronic title release (if applicable) to the Department of Revenue.</li>
+        <li>See more:
+          <a href="https://www.revenue.alabama.gov/faq-categories/lien/"
+             target="_blank"
+             style="color:#3b82f6;text-decoration:underline;">
+             AL Lien Release Info
+          </a>
+        </li>
       </ul>
     `
   };
