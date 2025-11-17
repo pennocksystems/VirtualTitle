@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 // Static: serve frontend (public as web root) + states + data
 // ─────────────────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/states", express.static(path.join(__dirname, "public", "states"))); // <- states moved into /public/states
+app.use("/states", express.static(path.join(__dirname, "public", "states"))); // states live in /public/states
 app.use("/data", express.static(path.join(__dirname, "data")));
 app.use("/forms", express.static(path.join(__dirname, "forms")));
 
@@ -138,6 +138,39 @@ const STATE_CONFIG = {
       { keyword: "replacement stickers", code: "reg-156" },
     ],
   },
+
+  // 🔹 New: Alaska
+  Alaska: {
+    code: "AK",
+    agencyName: "Alaska Division of Motor Vehicles (DMV)",
+    agencyUrl: "https://dmv.alaska.gov/vehicle-services/vehicle-services/",
+    forms: {
+      "ak-809": {
+        label: "Form 809 (Application for Duplicate Title) — Alaska",
+        path: "https://doa.alaska.gov/dmv/forms/pdfs/809.pdf",
+      },
+      "ak-811": {
+        label: "Form 811 (Verification of Vehicle / VIN) — Alaska",
+        path: "https://doa.alaska.gov/dmv/forms/pdfs/811.pdf",
+      },
+      "ak-827": {
+        label: "Form 827 (Vehicle Power of Attorney) — Alaska",
+        path: "https://doa.alaska.gov/dmv/forms/pdfs/827.pdf",
+      },
+      "ak-857": {
+        label: "Form 857 (Affidavit – Death/No Probate) — Alaska",
+        path: "https://doa.alaska.gov/dmv/forms/pdfs/857.pdf",
+      },
+    },
+    keywordMap: [
+      { keyword: "duplicate", code: "ak-809" },
+      { keyword: "replacement title", code: "ak-809" },
+      { keyword: "vin inspection", code: "ak-811" },
+      { keyword: "power of attorney", code: "ak-827" },
+      { keyword: "no probate", code: "ak-857" },
+      { keyword: "affidavit death", code: "ak-857" },
+    ],
+  },
 };
 
 // Helpers for form matching
@@ -172,7 +205,7 @@ function buildSystemPrompt(stateName) {
   const cfg = STATE_CONFIG[stateName];
 
   if (!cfg) {
-    // Fallback: generic US title help (if for some reason we don’t know the state)
+    // Fallback: generic US title help
     return `
 You are "Title Tom" — a friendly, professional US vehicle title specialist.
 Keep responses concise (3–5 sentences).
