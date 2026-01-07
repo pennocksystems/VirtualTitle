@@ -87,7 +87,7 @@ export default function () {
     </li>
   </ul>
   <br>
-  Considering donating your vehicle? We can guide you through the titling process above, and completing the donation intake! Send us an email today titles@arscars.com with your stock number to get started!
+  Considering donating your vehicle? We can guide you through the titling process above, and completing the donation intake! Send us an email today titles@arscars.com to get started!
 `,
 
     // Stubs (you can replace with AL content or leave generic)

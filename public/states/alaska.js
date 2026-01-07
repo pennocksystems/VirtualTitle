@@ -74,7 +74,7 @@ export default function () {
     </li>
   </ul>
   <br>
-  Considering donating your vehicle? We can guide you through the titling steps above and complete the donation intake. Email <strong>titles@arscars.com</strong> with your stock number to get started!
+  Considering donating your vehicle? We can guide you through the titling steps above and complete the donation intake. Email <strong>titles@arscars.com</strong> to get started!
 `,
 
     "How to Get Title for Deceased Owner": `
