@@ -56,7 +56,7 @@ export default function () {
         </li>
         <li>
           Step by Step Guided Walkthrough (Video):
-          <a href="hhttps://www.youtube.com/watch?v=IQ__kV7PEsA&list=PLqCx-xFkTudJP4oKlFWvcwTy-J4t1fxs1&index=9"
+          <a href="https://www.youtube.com/watch?v=IQ__kV7PEsA&list=PLqCx-xFkTudJP4oKlFWvcwTy-J4t1fxs1&index=9"
              target="_blank"
              style="color:#3b82f6;text-decoration:underline;">
              Watch Here
