@@ -2,6 +2,8 @@
 const chatBody = document.getElementById('chat-body');
 const chatInput = document.getElementById('chat-input');
 const sendBtn = document.getElementById('send-btn');
+const resetBtn = document.getElementById('reset-btn');
+resetBtn.addEventListener('click', resetChat);
 const statePill = document.getElementById('state-pill');
 
 // --- Allow Enter key to trigger send ---
@@ -80,6 +82,48 @@ const stateMap = {
   "VT": "Vermont", "VA": "Virginia", "WA": "Washington", "WV": "West Virginia",
   "WI": "Wisconsin", "WY": "Wyoming"
 };
+
+function runIntroSequence() {
+  addMessage("Hey there! I'm <strong>Title Tom</strong>.", 'bot', true);
+  setTimeout(() => addMessage("I'm here to help you navigate the confusing world of titles.", 'bot', true), 1200);
+  setTimeout(() => addMessage("Are you looking for general title information/instructions, or do you have a vehicle title issue with one of our services?", 'bot', true), 2500);
+  setTimeout(() => addIntroOptions(), 4000);
+}
+
+function resetChat() {
+  // Stop typing indicator
+  if (activeTypingTimeout) clearTimeout(activeTypingTimeout);
+  if (activeTypingDiv?.parentNode) activeTypingDiv.remove();
+  activeTypingTimeout = null;
+  activeTypingDiv = null;
+
+  // Clear chat UI
+  chatBody.innerHTML = '';
+
+  // Reset input
+  chatInput.value = '';
+
+  // Reset state
+  aiMode = false;
+  recordCheckMode = false;
+  verificationMode = false;
+  pendingClientData = null;
+  saidNiceToMeetYou = false;
+  currentQuestionIndex = 0;
+  currentStateModule = null;
+  answers = {};
+
+  // Reset pill
+  if (statePill) {
+    statePill.textContent = '';
+    statePill.classList.add('hidden');
+  }
+
+  // Delay intro to avoid race with DOM wipe
+  addMessage("🔄 You've reset the chat.", "bot", true).then(() => {
+    setTimeout(runIntroSequence, 800);
+  });
+}
 
 function normalizeState(input) {
   if (!input) return '';
