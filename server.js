@@ -138,8 +138,6 @@ const STATE_CONFIG = {
       { keyword: "replacement stickers", code: "reg-156" },
     ],
   },
-
-  // 🔹 New: Alaska
   Alaska: {
     code: "AK",
     agencyName: "Alaska Division of Motor Vehicles (DMV)",
@@ -169,6 +167,26 @@ const STATE_CONFIG = {
       { keyword: "power of attorney", code: "ak-827" },
       { keyword: "no probate", code: "ak-857" },
       { keyword: "affidavit death", code: "ak-857" },
+    ],
+  },
+  Arizona: {
+    code: "AZ",
+    agencyName: "Arizona Department of Transportation (Motor Vehicle Division)",
+    agencyUrl: "https://azdot.gov/mvd",
+    forms: {
+      "96-0236": {
+        label: "Form 96-0236 (Title and Registration Application) — Arizona",
+        path: "https://apps.azdot.gov/files/mvd/mvd-forms-lib/96-0236.pdf",
+      },
+      "48-7104": {
+        label: "Form 48-7104 (POA with Odometer Disclosure) — Arizona",
+        path: "https://apps.azdot.gov/files/mvd/mvd-forms-lib/48-7104.pdf",
+      },
+    },
+    keywordMap: [
+      { keyword: "duplicate", code: "96-0236" },
+      { keyword: "replacement", code: "96-0236" },
+      { keyword: "power of attorney", code: "48-7104" },
     ],
   },
 };
