@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Optional health check for Render
+// Health check for Render
 app.get("/healthz", (_req, res) => res.type("text").send("ok"));
 
 // ─────────────────────────────────────────────────────────────
@@ -312,8 +312,6 @@ app.post("/chat", async (req, res) => {
     res.status(500).json({ error: "Error contacting OpenAI" });
   }
 });
-
-// ─────────────────────────────────────────────────────────────
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));

@@ -1,4 +1,3 @@
-// /states/alabama.js
 export default function () {
   // Forms specific to Alabama
   const formLibrary = {
@@ -24,7 +23,7 @@ export default function () {
     }
   };
 
-  // AL-specific option content
+  // AL-specific Button content
   const optionResponses = {
     "How to Sign My Title": `
       Signing your <strong>Alabama state title</strong> can be intimidating.<br>
@@ -90,7 +89,7 @@ export default function () {
   Considering donating your vehicle? We can guide you through the titling process above, and completing the donation intake! Send us an email today titles@arscars.com to get started!
 `,
 
-    // Stubs (you can replace with AL content or leave generic)
+    // Stubs
     "How to Get Title for Deceased Owner": `
       When a vehicle owner has passed away in Alabama, the process to obtain a title depends on the estate situation.
       <ul>
@@ -145,7 +144,7 @@ export default function () {
     `
   };
 
-  // The order of buttons shown for Alabama
+  // The order of buttons shown
   const orderedOptions = [
     "How to Sign My Title",
     "Ask Me Anything",

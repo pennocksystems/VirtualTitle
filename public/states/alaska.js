@@ -1,4 +1,3 @@
-// /states/alaska.js
 export default function () {
   // Forms specific to Alaska
   const formLibrary = {
@@ -20,7 +19,7 @@ export default function () {
     }
   };
 
-  // AK-specific option content
+  // AK-specific button content
   const optionResponses = {
     "How to Sign My Title": `
       Signing your <strong>Alaska state title</strong> depends on whether you’re the buyer or seller.
@@ -146,7 +145,7 @@ export default function () {
     `
   };
 
-  // The order of buttons shown for Alaska
+  // The order of buttons shown
   const orderedOptions = [
     "How to Sign My Title",
     "Ask Me Anything",

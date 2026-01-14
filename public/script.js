@@ -32,7 +32,7 @@ let recordCheckMode = false;
 let verificationMode = false;
 let pendingClientData = null;
 
-// 🔹 Active per-state module (populated after state selection)
+// Active per-state module (populated after state selection)
 let currentStateModule = null;
 
 // --- Typing indicator (singleton-safe) ---
@@ -329,16 +329,16 @@ async function handleUserResponse() {
 
     addMessage(normalizedState, 'user');
 
-    // 🔹 Load per-state module dynamically
+    //  Load per-state module dynamically
     await loadStateModule(normalizedState);
 
-    // 🔹 Update header pill
+    //  Update header pill
     if (statePill) {
       statePill.textContent = normalizedState;
       statePill.classList.remove('hidden');
     }
 
-    // 🔹 Tell the user we're switching to their state context
+    //  Tell the user we're switching to their state context
     setTimeout(async () => {
       await addMessage(
         `Perfect. I'll pull all the information I can regarding <strong>${normalizedState} Title Information</strong>. Here are some of the routes we can take:`,

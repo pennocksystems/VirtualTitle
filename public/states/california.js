@@ -1,4 +1,3 @@
-// /states/california.js
 export default function () {
   // === Forms specific to California ===
   const formLibrary = {

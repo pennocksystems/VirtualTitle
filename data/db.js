@@ -1,5 +1,3 @@
-// /data/db.js
-
 // --- CSV parser (handles BOM, CRLF, quotes, embedded commas) ---
 function parseCSV(text) {
   if (text && text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
@@ -78,5 +76,5 @@ export async function fetchClientRecord(identifier) {
   return null;
 }
 
-// Optional: expose for console debugging
+// Console debugging
 try { if (typeof window !== 'undefined') window.fetchClientRecord = fetchClientRecord; } catch {}

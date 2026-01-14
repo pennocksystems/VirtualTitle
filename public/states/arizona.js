@@ -1,4 +1,3 @@
-// /states/arizona.js
 export default function () {
   // Forms specific to Arizona
   const formLibrary = {
@@ -24,7 +23,7 @@ export default function () {
     }
   };
 
-  // AZ-specific option content
+  // AZ-specific button content
   const optionResponses = {
     "How to Sign My Title": `
       Signing an <strong>Arizona title</strong> depends on the "Legal Status" printed between the owners' names:

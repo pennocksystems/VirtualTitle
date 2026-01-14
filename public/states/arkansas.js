@@ -1,4 +1,3 @@
-// /states/arkansas.js
 export default function () {
   // Forms specific to Arkansas
   const formLibrary = {
@@ -20,7 +19,7 @@ export default function () {
     }
   };
 
-  // AR-specific option content
+  // AR-specific button content
   const optionResponses = {
     "How to Sign My Title": `
       Signing an <strong>Arkansas title</strong> is governed by the conjunction between the owners' names:

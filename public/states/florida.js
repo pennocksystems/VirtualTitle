@@ -1,7 +1,6 @@
 export default function () {
 
   // Forms specific to Florida
-
   const formLibrary = {
 
     "hsmv-82040": {
@@ -30,7 +29,7 @@ export default function () {
     }
   };
 
-  // FL-specific option content
+  // FL-specific button content
 
   const optionResponses = {
 
@@ -100,7 +99,6 @@ export default function () {
 `,
 
     // Stubs (Radio Buttons)
-
     "How to Get Title for Deceased Owner": `
       When a vehicle owner has passed away in Florida, the process to obtain a title depends on the estate situation.
       <ul>
@@ -157,8 +155,7 @@ export default function () {
     `
   };
 
-  // The order of buttons shown for Florida
-
+  // The order of buttons shown
   const orderedOptions = [
 
     "How to Sign My Title",
