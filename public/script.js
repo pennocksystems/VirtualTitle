@@ -61,8 +61,7 @@ function showTypingIndicator(callback, delay = 800) {
 }
 
 // --- Initial messages ---
-addMessage("Hey there! I'm <strong>Title Tom</strong>.", 'bot', true);
-setTimeout(() => addMessage("I'm here to help you navigate the confusing world of titles.", 'bot', true), 1200);
+addMessage("Hey there! I'm <strong>Title Tom</strong>. I'm here to help you navigate the confusing world of titles.", 'bot', true);
 setTimeout(() => addMessage("Are you looking for general title information/instructions, or do you have a vehicle title issue with one of our services?", 'bot', true), 2500);
 setTimeout(() => addIntroOptions(), 4000);
 
