@@ -515,6 +515,80 @@ Indiana: {
     { keyword: "lienholder request", code: "1014" },
   ],
 },
+Iowa: {
+  code: "IA",
+  agencyName: "Iowa Department of Transportation (Motor Vehicle Division)",
+  agencyUrl: "https://iowadot.gov/mvd",
+  forms: {
+    "411007": {
+      label: "Form 411007 (Application for Certificate of Title and/or Registration) — Iowa",
+      path: "https://iowadot.gov/forms/index.aspx?formid=411007",
+    },
+    "411033": {
+      label: "Form 411033 (Application for Replacement of Iowa Certificate of Title) — Iowa",
+      path: "https://iowadot.gov/forms/index.aspx?formid=411033",
+    },
+    "411021": {
+      label: "Form 411021 (Power of Attorney Authorization) — Iowa",
+      path: "https://iowadot.gov/forms/index.aspx?formid=411021",
+    },
+    "Bill of Sale": {
+      label: "Bill of Sale (State Standard) — Iowa",
+      path: "https://www.iowatreasurers.org/files/Bill%20of%20Sale.pdf",
+    },
+    "411065": {
+      label: "Form 411065 (Damage Disclosure Statement) — Iowa",
+      path: "https://iowadot.gov/forms/index.aspx?formid=411065",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "411033" },
+    { keyword: "replacement", code: "411033" },
+    { keyword: "lost title", code: "411033" },
+    { keyword: "new title", code: "411007" },
+    { keyword: "registration", code: "411007" },
+    { keyword: "power of attorney", code: "411021" },
+    { keyword: "bill of sale", code: "Bill of Sale" },
+    { keyword: "damage disclosure", code: "411065" },
+  ],
+},
+Kansas: {
+  code: "KS",
+  agencyName: "Kansas Department of Revenue (Division of Vehicles)",
+  agencyUrl: "https://www.ksrevenue.gov/dovforms.html",
+  forms: {
+    "TR-212a": {
+      label: "Form TR-212a (Title and Registration Manual Application) — Kansas",
+      path: "https://www.ksrevenue.gov/pdf/tr212.pdf",
+    },
+    "TR-720B": {
+      label: "Form TR-720B (Manual Application for Duplicate, Secured, or Reissued Title) — Kansas",
+      path: "https://www.ksrevenue.gov/pdf/tr720b.pdf",
+    },
+    "TR-41": {
+      label: "Form TR-41 (Power of Attorney) — Kansas",
+      path: "https://www.ksrevenue.gov/pdf/tr41.pdf",
+    },
+    "TR-312": {
+      label: "Form TR-312 (Bill of Sale) — Kansas",
+      path: "https://www.ksrevenue.gov/pdf/tr312.pdf",
+    },
+    "TR-59": {
+      label: "Form TR-59 (Odometer Disclosure Statement) — Kansas",
+      path: "https://www.ksrevenue.gov/pdf/tr59.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "TR-720B" },
+    { keyword: "replacement", code: "TR-720B" },
+    { keyword: "lost title", code: "TR-720B" },
+    { keyword: "new title", code: "TR-212a" },
+    { keyword: "registration", code: "TR-212a" },
+    { keyword: "power of attorney", code: "TR-41" },
+    { keyword: "bill of sale", code: "TR-312" },
+    { keyword: "odometer", code: "TR-59" },
+  ],
+},
 };
 
 // Helpers for form matching
