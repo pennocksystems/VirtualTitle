@@ -589,6 +589,109 @@ Kansas: {
     { keyword: "odometer", code: "TR-59" },
   ],
 },
+Kentucky: {
+  code: "KY",
+  agencyName: "Kentucky Transportation Cabinet (Department of Vehicle Regulation)",
+  agencyUrl: "https://drive.ky.gov/",
+  forms: {
+    "TC 96-182": {
+      label: "Form TC 96-182 (Application for Kentucky Certificate of Title or Registration) — Kentucky",
+      path: "https://transportation.ky.gov/Organizational-Resources/Forms/TC%2096-182.pdf",
+    },
+    "TC 96-336": {
+      label: "Form TC 96-336 (Limited Power of Attorney) — Kentucky",
+      path: "https://transportation.ky.gov/Organizational-Resources/Forms/TC%2096-336.pdf",
+    },
+    "TC 96-167": {
+      label: "Form TC 96-167 (Affidavit for Replacement or Non-Exchange) — Kentucky",
+      path: "https://transportation.ky.gov/Organizational-Resources/Forms/TC%2096-167.pdf",
+    },
+    "TC 96-187": {
+      label: "Form TC 96-187 (Title Lien Statement) — Kentucky",
+      path: "https://transportation.ky.gov/Organizational-Resources/Forms/TC%2096-187.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "TC 96-182" },
+    { keyword: "replacement", code: "TC 96-182" },
+    { keyword: "lost title", code: "TC 96-182" },
+    { keyword: "new title", code: "TC 96-182" },
+    { keyword: "registration", code: "TC 96-182" },
+    { keyword: "power of attorney", code: "TC 96-336" },
+    { keyword: "plate replacement", code: "TC 96-167" },
+    { keyword: "lien", code: "TC 96-187" },
+  ],
+},
+Louisiana: {
+  code: "LA",
+  agencyName: "Louisiana Office of Motor Vehicles (OMV)",
+  agencyUrl: "https://www.expresslane.org/",
+  forms: {
+    "DPSMV 1799": {
+      label: "Form DPSMV 1799 (Vehicle Application) — Louisiana",
+      path: "https://public.powerdms.com/LADPSC/documents/355820",
+    },
+    "DPSMV 1606": {
+      label: "Bill of Sale of a Movable — Louisiana",
+      path: "https://www.expresslane.org/wp-content/uploads/BillofSale.pdf",
+    },
+    "DPSMV 1697": {
+      label: "Form DPSMV 1697 (Notice of Vehicle Transfer) — Louisiana",
+      path: "https://www.expresslane.org/wp-content/uploads/NoticeofTransfer.pdf",
+    },
+    "LPOA": {
+      label: "Limited Power of Attorney — Louisiana",
+      path: "https://www.expresslane.org/wp-content/uploads/LimitedPowerofAttorney.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "DPSMV 1799" },
+    { keyword: "replacement", code: "DPSMV 1799" },
+    { keyword: "lost title", code: "DPSMV 1799" },
+    { keyword: "new title", code: "DPSMV 1799" },
+    { keyword: "registration", code: "DPSMV 1799" },
+    { keyword: "bill of sale", code: "DPSMV 1606" },
+    { keyword: "transfer notice", code: "DPSMV 1697" },
+    { keyword: "power of attorney", code: "LPOA" },
+  ],
+},
+Maine: {
+  code: "ME",
+  agencyName: "Maine Bureau of Motor Vehicles (BMV)",
+  agencyUrl: "https://www.maine.gov/sos/bmv/",
+  forms: {
+    "MVT-2": {
+      label: "Form MVT-2 (Application for Certificate of Title) — Maine",
+      path: "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/MVT-2-20Title-20Application-20Rev-203-23.pdf",
+    },
+    "MVT-8": {
+      label: "Form MVT-8 (Application for Replacement Certificate of Title) — Maine",
+      path: "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/MVT-8-20Duplicate-20Title-20Application-2010-2023.pdf",
+    },
+    "MVT-16": {
+      label: "Form MVT-16 (Notice of Vehicle Transfer) — Maine",
+      path: "https://www.maine.gov/sos/bmv/forms/MVT-16.pdf",
+    },
+    "BMV-POA": {
+      label: "Motor Vehicle Power of Attorney — Maine",
+      path: "https://www.maine.gov/sos/bmv/forms/POA.pdf",
+    },
+    "Bill of Sale": {
+      label: "Maine Vehicle Bill of Sale",
+      path: "https://www.maine.gov/sos/bmv/forms/billofsale.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MVT-8" },
+    { keyword: "replacement", code: "MVT-8" },
+    { keyword: "lost title", code: "MVT-8" },
+    { keyword: "new title", code: "MVT-2" },
+    { keyword: "registration", code: "MVT-2" },
+    { keyword: "power of attorney", code: "BMV-POA" },
+    { keyword: "bill of sale", code: "Bill of Sale" },
+    { keyword: "transfer", code: "MVT-16" },
+  ],
+},
 };
 
 // Helpers for form matching
