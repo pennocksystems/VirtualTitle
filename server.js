@@ -790,6 +790,114 @@ Michigan: {
     { keyword: "bill of sale", code: "TR-207" },
   ],
 },
+Minnesota: {
+  code: "MN",
+  agencyName: "Minnesota Department of Public Safety (Driver and Vehicle Services)",
+  agencyUrl: "https://dps.mn.gov/divisions/dvs",
+  forms: {
+    "PS2000": {
+      label: "Form PS2000 (Application to Title and Register a Motor Vehicle) — Minnesota",
+      path: "https://dps.mn.gov/divisions/dvs/forms-documents/Documents/MV_ApplicationtoTitleandRegisterMotorVehicle.pdf",
+    },
+    "PS2067A": {
+      label: "Form PS2067A (Application for Duplicate Title, Registration, Cab or Lien Card) — Minnesota",
+      path: "https://s3.us-east-2.amazonaws.com/assets.dps.mn.gov/s3fs-public/migrated-files/divisions/dvs/forms-documents/Documents/MV_DuplicateTitle_Reg_Cab_LienCard_Application.pdf",
+    },
+    "PS2046": {
+      label: "Form PS2046 (Motor Vehicle Power of Attorney) — Minnesota",
+      path: "https://dps.mn.gov/divisions/dvs/forms-documents/Documents/MV_PowerofAttorney.pdf",
+    },
+    "PS2063": {
+      label: "Form PS2063 (Notice of Sale / Affidavit of Sale) — Minnesota",
+      path: "https://dps.mn.gov/divisions/dvs/forms-documents/Documents/MV_ReportVehicleSoldDonatedRemovedfromState.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "PS2067A" },
+    { keyword: "replacement", code: "PS2067A" },
+    { keyword: "lost title", code: "PS2067A" },
+    { keyword: "new title", code: "PS2000" },
+    { keyword: "registration", code: "PS2000" },
+    { keyword: "power of attorney", code: "PS2046" },
+    { keyword: "sold notice", code: "PS2063" },
+    { keyword: "report sale", code: "PS2063" },
+  ],
+},
+Mississippi: {
+  code: "MS",
+  agencyName: "Mississippi Department of Revenue (Motor Vehicle Services)",
+  agencyUrl: "https://www.dor.ms.gov/motor-vehicle",
+  forms: {
+    "78-002": {
+      label: "Form 78-002 (Application for Certificate of Title) — Mississippi",
+      path: "https://www.dor.ms.gov/sites/default/files/tax-forms/motor-vehicle/78002178.pdf",
+    },
+    "78-006": {
+      label: "Form 78-006 (Application for Replacement Certificate of Title) — Mississippi",
+      path: "https://www.dor.ms.gov/sites/default/files/tax-forms/motor-vehicle/78006178_0.pdf",
+    },
+    "78-026": {
+      label: "Form 78-026 (Fast Track Replacement Certificate of Title) — Mississippi",
+      path: "https://www.dor.ms.gov/sites/default/files/motor-vehicle-services/78026178%20Fast%20Track%20Application%20for%20Replacement%20Certificate%20of%20Title.pdf",
+    },
+    "78-003": {
+      label: "Form 78-003 (Power of Attorney to Transfer Motor Vehicle) — Mississippi",
+      path: "https://www.dor.ms.gov/sites/default/files/tax-forms/motor-vehicle/78003218.pdf",
+    },
+    "78-015": {
+      label: "Form 78-015 (Odometer Disclosure Statement) — Mississippi",
+      path: "https://www.dor.ms.gov/sites/default/files/tax-forms/motor-vehicle/78015178.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "78-006" },
+    { keyword: "replacement", code: "78-006" },
+    { keyword: "fast track", code: "78-026" },
+    { keyword: "expedited", code: "78-026" },
+    { keyword: "lost title", code: "78-006" },
+    { keyword: "new title", code: "78-002" },
+    { keyword: "power of attorney", code: "78-003" },
+    { keyword: "odometer", code: "78-015" },
+  ],
+},
+Missouri: {
+  code: "MO",
+  agencyName: "Missouri Department of Revenue (Motor Vehicle Bureau)",
+  agencyUrl: "https://dor.mo.gov/motor-vehicle/",
+  forms: {
+    "108": {
+      label: "Form 108 (Application for Missouri Title and License) — Missouri",
+      path: "https://dor.mo.gov/forms/108.pdf",
+    },
+    "4809": {
+      label: "Form 4809 (Notice of Lien, Lien Release, or Authorization) — Missouri",
+      path: "https://dor.mo.gov/forms/4809.pdf",
+    },
+    "4377": {
+      label: "Form 4377 (Power of Attorney) — Missouri",
+      path: "https://dor.mo.gov/forms/4377.pdf",
+    },
+    "1957": {
+      label: "Form 1957 (Bill of Sale) — Missouri",
+      path: "https://dor.mo.gov/forms/1957.pdf",
+    },
+    "2519": {
+      label: "Form 2519 (Request for Receipt of Title or Registration) — Missouri",
+      path: "https://dor.mo.gov/forms/2519.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "108" },
+    { keyword: "replacement", code: "108" },
+    { keyword: "lost title", code: "108" },
+    { keyword: "new title", code: "108" },
+    { keyword: "registration", code: "108" },
+    { keyword: "lien release", code: "4809" },
+    { keyword: "power of attorney", code: "4377" },
+    { keyword: "bill of sale", code: "1957" },
+    { keyword: "receipt", code: "2519" },
+  ],
+},
 };
 
 // Helpers for form matching
