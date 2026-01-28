@@ -60,10 +60,19 @@ function showTypingIndicator(callback, delay = 800) {
   }, delay);
 }
 
-// --- Initial messages ---
-addMessage("Hey there! I'm <strong>Title Tom</strong>. I'm here to help you navigate the confusing world of titles.", 'bot', true);
-setTimeout(() => addMessage("Are you looking for general title information/instructions, or do you have a vehicle title issue with one of our services?", 'bot', true), 2500);
-setTimeout(() => addIntroOptions(), 4000);
+// --- Initial messages (Staggered) ---
+(async () => {
+  await addMessage("Hey there! I'm <strong>Title Tom</strong>.", 'bot', true);
+  
+  await new Promise(r => setTimeout(r, 1000)); // Pause for breath
+  await addMessage("I'm here to help you navigate the confusing world of titles.", 'bot', true);
+  
+  await new Promise(r => setTimeout(r, 1500)); // Wait a bit longer
+  await addMessage("Are you looking for general title information/instructions, or do you have a vehicle title issue with one of our services?", 'bot', true);
+  
+  await new Promise(r => setTimeout(r, 1000));
+  addIntroOptions();
+})();
 
 // --- State Normalization ---
 const stateMap = {
@@ -125,15 +134,24 @@ function resetChat() {
 }
 
 function normalizeState(input) {
-  if (!input) return '';
+  if (!input) return null;
   const cleaned = input.trim().toUpperCase();
 
+  // 1. Check for Abbreviation (e.g., "AZ")
   if (stateMap[cleaned]) return stateMap[cleaned];
 
-  const match = Object.values(stateMap).find(
-    name => name.toUpperCase().startsWith(cleaned)
-  );
-  return match || input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+  // 2. Check for Full Name (e.g., "ARIZONA")
+  const fullNames = Object.values(stateMap);
+  const match = fullNames.find(name => name.toUpperCase() === cleaned);
+  if (match) return match;
+
+  // 3. Check for Partial Start (e.g., "Mont" -> "Montana")
+  if (cleaned.length >= 3) {
+    const partialMatch = fullNames.find(name => name.toUpperCase().startsWith(cleaned));
+    if (partialMatch) return partialMatch;
+  }
+
+  return null; // This is the magic part—it fails if no match found
 }
 
 // --- Helpers shared with modules ---
@@ -279,18 +297,18 @@ async function handleUserResponse() {
     addMessage(userText, 'user');
     chatInput.value = '';
 
-    const record = await fetchClientRecordSmart(userText); // email or phone
+    const record = await fetchClientRecordSmart(userText);
     if (record) {
       pendingClientData = record;
       verificationMode = true;
       addMessage(
-        "📧 We've sent a 4-digit code to the email address you provided. Please type that code here to verify access (DEMO CODE:<strong>0000</strong>).",
+        "📧 We've sent a 4-digit code to the email address you provided. (DEMO CODE:<strong>0000</strong>).",
         'bot',
         true
       );
     } else {
       addMessage("❌ No record found for that contact. No worries — let's continue manually.", 'bot');
-      currentQuestionIndex = 2;
+      currentQuestionIndex = 2; // Jump to State Question
       setTimeout(() => addStateInput(), 1000);
     }
     return;
@@ -300,7 +318,6 @@ async function handleUserResponse() {
   if (aiMode) {
     addMessage(userText, 'user');
     chatInput.value = '';
-
     const formResponse = checkForFormDownload(userText);
     if (formResponse) {
       addMessage(formResponse, 'bot', true);
@@ -310,10 +327,11 @@ async function handleUserResponse() {
     return;
   }
 
-  // --- State collection step ---
+  // --- State collection step (The Gatekeeper) ---
   if (currentQuestionIndex === 2) {
     const stateInput = document.getElementById('state-input');
-    const rawInput = stateInput ? stateInput.value.trim() : chatInput.value.trim();
+    // Check either the special input or the main chat input
+    const rawInput = stateInput ? stateInput.value.trim() : userText;
 
     if (!rawInput) {
       alert('Please enter your state before continuing.');
@@ -321,26 +339,33 @@ async function handleUserResponse() {
     }
 
     const normalizedState = normalizeState(rawInput);
-    answers['state'] = normalizedState;
 
+    // IF INVALID: Stop, warn user, and DO NOT increment index
+    if (!normalizedState) {
+      addMessage(rawInput, 'user');
+      chatInput.value = '';
+      if (stateInput) stateInput.value = ''; // clear the specific state input if it exists
+      
+      addMessage(`I'm sorry, I don't recognize <strong>"${rawInput}"</strong> as a valid US state. Please check your spelling or try a 2-letter abbreviation.`, 'bot', true);
+      return; // Exit the function immediately
+    }
+
+    // IF VALID: Proceed
+    answers['state'] = normalizedState;
     if (stateInput && stateInput.parentNode) stateInput.parentNode.remove();
     chatInput.value = '';
-
     addMessage(normalizedState, 'user');
 
-    //  Load per-state module dynamically
     await loadStateModule(normalizedState);
 
-    //  Update header pill
     if (statePill) {
       statePill.textContent = normalizedState;
       statePill.classList.remove('hidden');
     }
 
-    //  Tell the user we're switching to their state context
     setTimeout(async () => {
       await addMessage(
-        `Perfect. I'll pull all the information I can regarding <strong>${normalizedState} Title Information</strong>. Here are some of the routes we can take:`,
+        `Perfect. I'll pull all the information I can regarding <strong>${normalizedState} Title Information</strong>.`,
         'bot',
         true
       );
@@ -351,18 +376,22 @@ async function handleUserResponse() {
     return;
   }
 
-  // --- Default flow (name/phone) ---
+  // --- Default flow (Name & Phone) ---
   addMessage(userText, 'user');
   const keys = ['name', 'phone', 'state'];
-  answers[keys[currentQuestionIndex]] = userText;
-  currentQuestionIndex++;
-  chatInput.value = '';
+  
+  // Guard against array overflow
+  if (currentQuestionIndex < keys.length) {
+    answers[keys[currentQuestionIndex]] = userText;
+    currentQuestionIndex++;
+    chatInput.value = '';
 
-  if (currentQuestionIndex < questions.length) {
-    if (questions[currentQuestionIndex].toLowerCase().includes('state')) {
-      setTimeout(() => addStateInput(), 800);
-    } else {
-      setTimeout(() => addMessage(getPersonalizedMessage(questions[currentQuestionIndex]), 'bot'), 800);
+    if (currentQuestionIndex < questions.length) {
+      if (questions[currentQuestionIndex].toLowerCase().includes('state')) {
+        setTimeout(() => addStateInput(), 800);
+      } else {
+        setTimeout(() => addMessage(getPersonalizedMessage(questions[currentQuestionIndex]), 'bot'), 800);
+      }
     }
   }
 }
