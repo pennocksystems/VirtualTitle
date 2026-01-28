@@ -215,6 +215,38 @@ const STATE_CONFIG = {
     { keyword: "power of attorney", code: "POA-01" },
   ],
 },
+Florida: {
+  code: "FL",
+  agencyName: "Florida Department of Highway Safety and Motor Vehicles",
+  agencyUrl: "https://www.flhsmv.gov/",
+  forms: {
+    "82040": {
+      label: "Form 82040 (Application for Certificate of Title With/Without Registration) — Florida",
+      path: "https://www.flhsmv.gov/pdf/forms/82040.pdf",
+    },
+    "82101": {
+      label: "Form 82101 (Application for Duplicate or Lost in Transit Title Certificate) — Florida",
+      path: "https://www.flhsmv.gov/pdf/forms/82101.pdf",
+    },
+    "82053": {
+      label: "Form 82053 (Power of Attorney) — Florida",
+      path: "https://www.flhsmv.gov/pdf/forms/82053.pdf",
+    },
+    "82050": {
+      label: "Form 82050 (Notice of Sale / Bill of Sale) — Florida",
+      path: "https://www.flhsmv.gov/pdf/forms/82050.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "82101" },
+    { keyword: "replacement", code: "82101" },
+    { keyword: "lost title", code: "82101" },
+    { keyword: "original title", code: "82040" },
+    { keyword: "transfer", code: "82040" },
+    { keyword: "power of attorney", code: "82053" },
+    { keyword: "bill of sale", code: "82050" },
+  ],
+},
 };
 
 // Helpers for form matching
