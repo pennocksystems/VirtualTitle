@@ -381,7 +381,7 @@ Georgia: {
     { keyword: "lien release", code: "T-4" },
   ],
 },
-Hawaii_Honolulu: {
+Hawaii: {
   code: "HI",
   agencyName: "City and County of Honolulu (Department of Customer Services)",
   agencyUrl: "https://www.honolulu.gov/csd/mvehicle.html",
@@ -442,6 +442,77 @@ Idaho: {
     { keyword: "registration", code: "ITD 3337" },
     { keyword: "bill of sale", code: "ITD 3738" },
     { keyword: "power of attorney", code: "ITD 3368" },
+  ],
+},
+Illinois: {
+  code: "IL",
+  agencyName: "Illinois Secretary of State (Vehicle Services Department)",
+  agencyUrl: "https://www.ilsos.gov/",
+  forms: {
+    "VSD 190": {
+      label: "Form VSD 190 (Application for Vehicle Transaction) — Illinois",
+      path: "https://www.ilsos.gov/publications/pdf_publications/vsd190.pdf",
+    },
+    "RT-5": {
+      label: "Form RT-5 (Motor Vehicle Power of Attorney) — Illinois",
+      path: "https://www.ilsos.gov/publications/pdf_publications/rt5.pdf",
+    },
+    "VSD 657": {
+      label: "Form VSD 657 (Electronic Registration and Title Application) — Illinois",
+      path: "https://www.ilsos.gov/publications/pdf_publications/vsd657.pdf",
+    },
+    "RUT-50": {
+      label: "Form RUT-50 (Private Party Vehicle Use Tax Transaction Return) — Illinois",
+      path: "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/sales/documents/rut-50-instr.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "VSD 190" },
+    { keyword: "replacement", code: "VSD 190" },
+    { keyword: "lost title", code: "VSD 190" },
+    { keyword: "new title", code: "VSD 190" },
+    { keyword: "registration", code: "VSD 190" },
+    { keyword: "power of attorney", code: "RT-5" },
+    { keyword: "tax", code: "RUT-50" },
+    { keyword: "electronic title", code: "VSD 657" },
+  ],
+},
+Indiana: {
+  code: "IN",
+  agencyName: "Indiana Bureau of Motor Vehicles (BMV)",
+  agencyUrl: "https://www.in.gov/bmv/",
+  forms: {
+    "205": {
+      label: "Form 205 (Application for Certificate of Title) — Indiana",
+      path: "https://forms.in.gov/Download.aspx?id=12817",
+    },
+    "1940": {
+      label: "Form 1940 (Limited Power of Attorney) — Indiana",
+      path: "https://forms.in.gov/download.aspx?id=5592",
+    },
+    "44237": {
+      label: "Form 44237 (Bill of Sale) — Indiana",
+      path: "https://forms.in.gov/Download.aspx?id=5521",
+    },
+    "1014": {
+      label: "Form 1014 (Request for Title from Lienholder) — Indiana",
+      path: "https://forms.in.gov/Download.aspx?id=5367",
+    },
+    "43230": {
+      label: "Form 43230 (Odometer Disclosure Statement) — Indiana",
+      path: "https://forms.in.gov/Download.aspx?id=5165",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "205" },
+    { keyword: "replacement", code: "205" },
+    { keyword: "lost title", code: "205" },
+    { keyword: "new title", code: "205" },
+    { keyword: "registration", code: "205" },
+    { keyword: "power of attorney", code: "1940" },
+    { keyword: "bill of sale", code: "44237" },
+    { keyword: "odometer", code: "43230" },
+    { keyword: "lienholder request", code: "1014" },
   ],
 },
 };
