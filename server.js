@@ -316,6 +316,71 @@ Connecticut: {
     { keyword: "transfer ownership", code: "Q-1" },
   ],
 },
+Delaware: {
+  code: "DE",
+  agencyName: "Delaware Division of Motor Vehicles",
+  agencyUrl: "https://dmv.de.gov/",
+  forms: {
+    "MV-212": {
+      label: "Form MV-212 (Application for Title) — Delaware",
+      path: "https://dmv.de.gov/forms/veh_serv_forms/pdfs/ve_frm_mv212.pdf",
+    },
+    "MV-213": {
+      label: "Form MV-213 (Application for Duplicate Title) — Delaware",
+      path: "https://dmv.de.gov/forms/veh_serv_forms/pdfs/ve_frm_mv213.pdf",
+    },
+    "MV-386": {
+      label: "Form MV-386 (Power of Attorney to Transfer a Motor Vehicle Title) — Delaware",
+      path: "https://dmv.de.gov/forms/veh_serv_forms/pdfs/ve_frm_poa.pdf",
+    },
+    "MV-35": {
+      label: "Form MV-35 (Request of Title from Lienholder to DMV) — Delaware",
+      path: "https://dmv.de.gov/forms/veh_serv_forms/pdfs/ve_frm_mv35.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MV-213" },
+    { keyword: "replacement", code: "MV-213" },
+    { keyword: "lost title", code: "MV-213" },
+    { keyword: "new title", code: "MV-212" },
+    { keyword: "registration", code: "MV-212" },
+    { keyword: "power of attorney", code: "MV-386" },
+    { keyword: "lienholder request", code: "MV-35" },
+  ],
+},
+Georgia: {
+  code: "GA",
+  agencyName: "Georgia Department of Revenue (Motor Vehicle Division)",
+  agencyUrl: "https://dor.georgia.gov/motor-vehicles",
+  forms: {
+    "MV-1": {
+      label: "Form MV-1 (Motor Vehicle Title/Tag Application) — Georgia",
+      path: "https://dor.georgia.gov/document/document/mv-1-dor-motor-vehicle-titletag-application-revised-6-2020/download",
+    },
+    "T-8": {
+      label: "Form T-8 (Limited Power of Attorney) — Georgia",
+      path: "https://dor.georgia.gov/document/form/t-8limitedpowerofattorneypdf/download",
+    },
+    "T-7": {
+      label: "Form T-7 (Bill of Sale) — Georgia",
+      path: "https://dor.georgia.gov/document/form/t-7billofsalepdf/download",
+    },
+    "T-4": {
+      label: "Form T-4 (Lien Release) — Georgia",
+      path: "https://dor.georgia.gov/document/form/t-4lienreleasepdf/download",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MV-1" },
+    { keyword: "replacement", code: "MV-1" },
+    { keyword: "lost title", code: "MV-1" },
+    { keyword: "new title", code: "MV-1" },
+    { keyword: "registration", code: "MV-1" },
+    { keyword: "power of attorney", code: "T-8" },
+    { keyword: "bill of sale", code: "T-7" },
+    { keyword: "lien release", code: "T-4" },
+  ],
+},
 };
 
 // Helpers for form matching
