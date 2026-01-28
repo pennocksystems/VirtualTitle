@@ -381,6 +381,69 @@ Georgia: {
     { keyword: "lien release", code: "T-4" },
   ],
 },
+Hawaii_Honolulu: {
+  code: "HI",
+  agencyName: "City and County of Honolulu (Department of Customer Services)",
+  agencyUrl: "https://www.honolulu.gov/csd/mvehicle.html",
+  forms: {
+    "CS-L(MVR)1": {
+      label: "Form CS-L(MVR)1 (Application for Registration) — Honolulu",
+      path: "https://www.honolulu.gov/csd/wp-content/uploads/sites/6/2023/09/CS-LMVR1-fillable-form.pdf",
+    },
+    "CS-L(MVR)10": {
+      label: "Form CS-L(MVR)10 (Application for Duplicate Motor Vehicle Title) — Honolulu",
+      path: "https://www.honolulu.gov/csd/wp-content/uploads/sites/6/2024/01/CS-LMVR10_fillable.pdf",
+    },
+    "CS-L(MVR)5": {
+      label: "Form CS-L(MVR)5 (Application for Duplicate Certificate of Registration) — Honolulu",
+      path: "https://www.honolulu.gov/csd/wp-content/uploads/sites/6/2023/09/CS-LMVR5-fillable-form.pdf",
+    },
+    "G-27": {
+      label: "Form G-27 (Motor Vehicle Use Tax Certification) — Hawaii State",
+      path: "https://files.hawaii.gov/tax/forms/2023/g27.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate title", code: "CS-L(MVR)10" },
+    { keyword: "lost title", code: "CS-L(MVR)10" },
+    { keyword: "duplicate registration", code: "CS-L(MVR)5" },
+    { keyword: "new title", code: "CS-L(MVR)1" },
+    { keyword: "transfer", code: "CS-L(MVR)1" },
+    { keyword: "use tax", code: "G-27" },
+  ],
+},
+Idaho: {
+  code: "ID",
+  agencyName: "Idaho Transportation Department (Division of Motor Vehicles)",
+  agencyUrl: "https://itd.idaho.gov/dmv/",
+  forms: {
+    "ITD 3337": {
+      label: "Form ITD 3337 (Application for Certificate of Title) — Idaho",
+      path: "https://itd.idaho.gov/wp-content/uploads/2025/04/3337.pdf",
+    },
+    "ITD 3367": {
+      label: "Form ITD 3367 (Duplicate Idaho Title Application) — Idaho",
+      path: "https://itd.idaho.gov/wp-content/uploads/2021/09/3367.pdf",
+    },
+    "ITD 3738": {
+      label: "Form ITD 3738 (Bill of Sale) — Idaho",
+      path: "https://itd.idaho.gov/wp-content/uploads/2025/03/3738.pdf",
+    },
+    "ITD 3368": {
+      label: "Form ITD 3368 (Limited Power of Attorney) — Idaho",
+      path: "https://itd.idaho.gov/wp-content/uploads/2025/03/3368.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "ITD 3367" },
+    { keyword: "replacement", code: "ITD 3367" },
+    { keyword: "lost title", code: "ITD 3367" },
+    { keyword: "new title", code: "ITD 3337" },
+    { keyword: "registration", code: "ITD 3337" },
+    { keyword: "bill of sale", code: "ITD 3738" },
+    { keyword: "power of attorney", code: "ITD 3368" },
+  ],
+},
 };
 
 // Helpers for form matching
