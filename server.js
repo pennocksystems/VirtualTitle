@@ -247,6 +247,75 @@ Florida: {
     { keyword: "bill of sale", code: "82050" },
   ],
 },
+Colorado: {
+  code: "CO",
+  agencyName: "Colorado Department of Revenue (Division of Motor Vehicles)",
+  agencyUrl: "https://dmv.colorado.gov/",
+  forms: {
+    "DR 2395": {
+      label: "Form DR 2395 (Application for Title and/or Registration) — Colorado",
+      path: "https://dmv.colorado.gov/sites/dmv/files/documents/DR2395_0.pdf",
+    },
+    "DR 2539A": {
+      label: "Form DR 2539A (Duplicate Title/Lien Request and Receipt) — Colorado",
+      path: "https://dmv.colorado.gov/sites/dmv/files/documents/DR_2539A.pdf",
+    },
+    "DR 2175": {
+      label: "Form DR 2175 (Motor Vehicle Power of Attorney) — Colorado",
+      path: "https://dmv.colorado.gov/sites/dmv/files/DR2175.pdf",
+    },
+    "DR 2444": {
+      label: "Form DR 2444 (Statement of Fact) — Colorado",
+      path: "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202444_e_wo.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "DR 2539A" },
+    { keyword: "replacement", code: "DR 2539A" },
+    { keyword: "lost title", code: "DR 2539A" },
+    { keyword: "new title", code: "DR 2395" },
+    { keyword: "registration", code: "DR 2395" },
+    { keyword: "power of attorney", code: "DR 2175" },
+    { keyword: "statement of fact", code: "DR 2444" },
+  ],
+},
+Connecticut: {
+  code: "CT",
+  agencyName: "Connecticut Department of Motor Vehicles",
+  agencyUrl: "https://portal.ct.gov/dmv",
+  forms: {
+    "H-13B": {
+      label: "Form H-13B (Registration and Title Application) — Connecticut",
+      path: "https://portal.ct.gov/-/media/dmv/20/29/h13bpdf.pdf",
+    },
+    "H-6B": {
+      label: "Form H-6B (Application for Replacement Certificate of Title) — Connecticut",
+      path: "https://portal.ct.gov/-/media/dmv/20/29/h6bpdf.pdf",
+    },
+    "A-83": {
+      label: "Form A-83 (Special Power of Attorney) — Connecticut",
+      path: "https://portal.ct.gov/-/media/dmv/20/29/a83pdf.pdf",
+    },
+    "H-31": {
+      label: "Form H-31 (Bill of Sale) — Connecticut",
+      path: "https://portal.ct.gov/-/media/dmv/20/29/h31pdf.pdf",
+    },
+    "Q-1": {
+      label: "Form Q-1 (Supplemental Assignment of Ownership) — Connecticut",
+      path: "https://portal.ct.gov/-/media/dmv/20/29/q1pdf.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "H-6B" },
+    { keyword: "replacement", code: "H-6B" },
+    { keyword: "lost title", code: "H-6B" },
+    { keyword: "new title", code: "H-13B" },
+    { keyword: "registration", code: "H-13B" },
+    { keyword: "power of attorney", code: "A-83" },
+    { keyword: "bill of sale", code: "H-31" },
+    { keyword: "transfer ownership", code: "Q-1" },
+  ],
+},
 };
 
 // Helpers for form matching
