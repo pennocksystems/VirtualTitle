@@ -189,6 +189,32 @@ const STATE_CONFIG = {
       { keyword: "power of attorney", code: "48-7104" },
     ],
   },
+  Arkansas: {
+  code: "AR",
+  agencyName: "Arkansas Department of Finance and Administration (Office of Motor Vehicle)",
+  agencyUrl: "https://www.dfa.arkansas.gov/office/motor-vehicle/",
+  forms: {
+    "10-381": {
+      label: "Form 10-381 (Vehicle Registration Application) — Arkansas",
+      path: "https://www.dfa.arkansas.gov/wp-content/uploads/VehicleRegistrationApplication.pdf",
+    },
+    "10-313": {
+      label: "Form 10-313 (Bill of Sale) — Arkansas",
+      path: "https://www.dfa.arkansas.gov/wp-content/uploads/BillofSale.pdf",
+    },
+    "POA-01": {
+      label: "Power of Attorney for Vehicle Transactions — Arkansas",
+      path: "https://www.dfa.arkansas.gov/wp-content/uploads/POWER_OF_ATTORNEYforDUPLICATE_TITLE_VEHICLE_TRANSACTIONS.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "10-381" },
+    { keyword: "replacement", code: "10-381" },
+    { keyword: "registration", code: "10-381" },
+    { keyword: "bill of sale", code: "10-313" },
+    { keyword: "power of attorney", code: "POA-01" },
+  ],
+},
 };
 
 // Helpers for form matching
