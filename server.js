@@ -692,6 +692,104 @@ Maine: {
     { keyword: "transfer", code: "MVT-16" },
   ],
 },
+Maryland: {
+  code: "MD",
+  agencyName: "Maryland Motor Vehicle Administration (MVA)",
+  agencyUrl: "https://mva.maryland.gov/",
+  forms: {
+    "VR-005": {
+      label: "Form VR-005 (Application for Certificate of Title) — Maryland",
+      path: "https://mva.maryland.gov/Documents/VR-005.pdf",
+    },
+    "VR-018": {
+      label: "Form VR-018 (Application for Duplicate Certificate of Title) — Maryland",
+      path: "https://mva.maryland.gov/Documents/VR-018.pdf",
+    },
+    "VR-470": {
+      label: "Form VR-470 (Restricted Power of Attorney) — Maryland",
+      path: "https://mva.maryland.gov/Documents/VR-470.pdf",
+    },
+    "VR-181": {
+      label: "Form VR-181 (Bill of Sale) — Maryland",
+      path: "https://mva.maryland.gov/Documents/VR-181.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "VR-018" },
+    { keyword: "replacement", code: "VR-018" },
+    { keyword: "lost title", code: "VR-018" },
+    { keyword: "new title", code: "VR-005" },
+    { keyword: "registration", code: "VR-005" },
+    { keyword: "power of attorney", code: "VR-470" },
+    { keyword: "bill of sale", code: "VR-181" },
+  ],
+},
+Massachusetts: {
+  code: "MA",
+  agencyName: "Massachusetts Registry of Motor Vehicles (RMV)",
+  agencyUrl: "https://www.mass.gov/orgs/identity-and-registry-services",
+  forms: {
+    "RTA": {
+      label: "Registration and Title Application — Massachusetts",
+      path: "https://www.mass.gov/doc/registration-and-title-application/download",
+    },
+    "T20558": {
+      label: "Form T20558 (Application for Duplicate Certificate of Title) — Massachusetts",
+      path: "https://www.mass.gov/doc/application-for-duplicate-certificate-of-title/download",
+    },
+    "TTLREG109": {
+      label: "Form TTLREG109 (Vehicle Owner's Limited Power of Attorney) — Massachusetts",
+      path: "https://www.mass.gov/doc/limited-power-of-attorney/download",
+    },
+    "MVU-24": {
+      label: "Form MVU-24 (Gift Affidavit for Motor Vehicle) — Massachusetts",
+      path: "https://www.mass.gov/doc/mvu-24-affidavit-in-support-of-a-claim-for-exemption-from-sales-or-use-tax-for-a-motor-vehicle/download",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "T20558" },
+    { keyword: "replacement", code: "T20558" },
+    { keyword: "lost title", code: "T20558" },
+    { keyword: "new title", code: "RTA" },
+    { keyword: "registration", code: "RTA" },
+    { keyword: "power of attorney", code: "TTLREG109" },
+    { keyword: "gift", code: "MVU-24" },
+    { keyword: "tax exemption", code: "MVU-24" },
+  ],
+},
+Michigan: {
+  code: "MI",
+  agencyName: "Michigan Secretary of State",
+  agencyUrl: "https://www.michigan.gov/sos",
+  forms: {
+    "TR-11L": {
+      label: "Form TR-11L (Application for Michigan Vehicle Title) — Michigan",
+      path: "https://www.michigan.gov/-/media/Project/Websites/sos/27lawensn/tr11L.pdf",
+    },
+    "TR-128": {
+      label: "Form TR-128 (Appointment of Agent) — Michigan",
+      path: "https://www.michigan.gov/-/media/Project/Websites/sos/27lawensn/tr128.pdf",
+    },
+    "TR-207": {
+      label: "Form TR-207 (Bill of Sale for Trailer/Watercraft/Snowmobile) — Michigan",
+      path: "https://www.michigan.gov/-/media/Project/Websites/sos/24lawensn/tr207.pdf",
+    },
+    "RD-108": {
+      label: "Form RD-108 (Application for Title and Registration - Dealer Use) — Michigan",
+      path: "https://www.michigan.gov/-/media/Project/Websites/sos/05preston/RD-108_MI.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "TR-11L" },
+    { keyword: "replacement", code: "TR-11L" },
+    { keyword: "lost title", code: "TR-11L" },
+    { keyword: "new title", code: "TR-11L" },
+    { keyword: "registration", code: "TR-11L" },
+    { keyword: "appointment of agent", code: "TR-128" },
+    { keyword: "power of attorney", code: "TR-128" },
+    { keyword: "bill of sale", code: "TR-207" },
+  ],
+},
 };
 
 // Helpers for form matching
