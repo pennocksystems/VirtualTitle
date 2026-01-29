@@ -1000,6 +1000,102 @@ Nevada: {
     { keyword: "rush", code: "VP 265" },
   ],
 },
+"New Hampshire": {
+  code: "NH",
+  agencyName: "New Hampshire Division of Motor Vehicles",
+  agencyUrl: "https://www.dmv.nh.gov/",
+  forms: {
+    "TDMV 18": {
+      label: "Form TDMV 18 (Application for Duplicate Certificate of Title) — New Hampshire",
+      path: "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/tdmv18.pdf",
+    },
+    "TITLE 5": {
+      label: "Form TITLE 5 (Motor Vehicle Power of Attorney) — New Hampshire",
+      path: "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/title5.pdf",
+    },
+    "TDMV 22A": {
+      label: "Form TDMV 22A (Report of Sale or Transfer of a Non-Titled Vehicle) — New Hampshire",
+      path: "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/tdmv22a.pdf",
+    },
+    "TDMV 20": {
+      label: "Form TDMV 20 (Release of Lien or Other Encumbrances) — New Hampshire",
+      path: "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/tdmv20.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "TDMV 18" },
+    { keyword: "replacement", code: "TDMV 18" },
+    { keyword: "lost title", code: "TDMV 18" },
+    { keyword: "power of attorney", code: "TITLE 5" },
+    { keyword: "non-titled transfer", code: "TDMV 22A" },
+    { keyword: "bill of sale", code: "TDMV 22A" },
+    { keyword: "lien release", code: "TDMV 20" },
+  ],
+},
+"New Jersey": {
+  code: "NJ",
+  agencyName: "New Jersey Motor Vehicle Commission (MVC)",
+  agencyUrl: "https://www.nj.gov/mvc/",
+  forms: {
+    "OS/SS-UTA": {
+      label: "Form OS/SS-UTA (Universal Title Application) — New Jersey",
+      path: "https://www.nj.gov/mvc/pdf/vehicles/OS-SS-UTA.pdf",
+    },
+    "OS/SS-52": {
+      label: "Form OS/SS-52 (Application for Duplicate Certificate of Ownership) — New Jersey",
+      path: "https://www.nj.gov/mvc/pdf/vehicles/OS-SS-52.pdf",
+    },
+    "BA-49": {
+      label: "Form BA-49 (Application for Vehicle Registration) — New Jersey",
+      path: "https://www.nj.gov/mvc/pdf/vehicles/BA-49.pdf",
+    },
+    "SPOA": {
+      label: "Secure Power of Attorney (Odometer Disclosure) — New Jersey",
+      path: "https://www.nj.gov/mvc/pdf/business/DLR-SPOA.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "OS/SS-52" },
+    { keyword: "replacement", code: "OS/SS-52" },
+    { keyword: "lost title", code: "OS/SS-52" },
+    { keyword: "universal title", code: "OS/SS-UTA" },
+    { keyword: "registration", code: "BA-49" },
+    { keyword: "power of attorney", code: "SPOA" },
+    { keyword: "odometer", code: "SPOA" },
+  ],
+},
+"New Mexico": {
+  code: "NM",
+  agencyName: "New Mexico Taxation & Revenue Department (Motor Vehicle Division)",
+  agencyUrl: "https://www.mvd.newmexico.gov/",
+  forms: {
+    "MVD-10002": {
+      label: "Form MVD-10002 (Application for Vehicle Title and Registration) — New Mexico",
+      path: "https://www.mvd.newmexico.gov/wp-content/uploads/2020/12/mvd10002.pdf",
+    },
+    "MVD-10901": {
+      label: "Form MVD-10901 (Application for Duplicate Certificate of Title) — New Mexico",
+      path: "https://realfile.tax.newmexico.gov/mvd10901.pdf",
+    },
+    "MVD-11020": {
+      label: "Form MVD-11020 (Limited Durable Power of Attorney) — New Mexico",
+      path: "https://www.mvd.newmexico.gov/wp-content/uploads/2020/12/mvd11020.pdf",
+    },
+    "MVD-10009": {
+      label: "Form MVD-10009 (Bill of Sale) — New Mexico",
+      path: "https://www.mvd.newmexico.gov/wp-content/uploads/2020/12/mvd10009.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MVD-10901" },
+    { keyword: "replacement", code: "MVD-10901" },
+    { keyword: "lost title", code: "MVD-10901" },
+    { keyword: "new title", code: "MVD-10002" },
+    { keyword: "registration", code: "MVD-10002" },
+    { keyword: "power of attorney", code: "MVD-11020" },
+    { keyword: "bill of sale", code: "MVD-10009" },
+  ],
+},
 };
 
 // Helpers for form matching

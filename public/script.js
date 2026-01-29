@@ -195,15 +195,20 @@ const dbg = (...args) => DEBUG && console.log(...args);
 function buildStateModuleCandidates(stateName) {
   const raw = (stateName || '').trim();
   if (!raw) return [];
+  
   const full = stateMap[raw.toUpperCase()] || raw;
-  const fullSlug = full.toLowerCase().replace(/\s+/g, '-');
+  
+  // Create two versions of the slug: one with dashes and one with nothing
+  const slugWithDash = full.toLowerCase().replace(/\s+/g, '-');    // "new-mexico"
+  const slugPlain = full.toLowerCase().replace(/\s+/g, '');      // "newmexico"
+  
   const abbr = Object.entries(stateMap).find(([, v]) => v === full)?.[0]?.toLowerCase() || '';
 
   return [
-    `/states/${fullSlug}.js`,
-    `/states/${fullSlug}/index.js`,
+    `/states/${slugWithDash}.js`,
+    `/states/${slugPlain}.js`,      // Added this as a fallback
+    `/states/${full.toLowerCase()}.js`, // handles "new mexico.js" if that's the filename
     abbr ? `/states/${abbr}.js` : null,
-    abbr ? `/states/${abbr}/index.js` : null,
   ].filter(Boolean);
 }
 
