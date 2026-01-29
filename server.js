@@ -1310,6 +1310,134 @@ Oregon: {
     { keyword: "notice of sale", code: "735-6890" },
   ],
 },
+Pennsylvania: {
+  code: "PA",
+  agencyName: "PennDOT (Bureau of Motor Vehicles)",
+  agencyUrl: "https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration",
+  forms: {
+    "MV-38O": {
+      label: "Form MV-38O (Application for Duplicate Certificate of Title by Owner) — Pennsylvania",
+      path: "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-forms/mv-38o.pdf",
+    },
+    "MV-POA": {
+      label: "Form MV-POA (Secure Power of Attorney) — Pennsylvania",
+      path: "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-fact-sheets/fs-spoa.pdf",
+    },
+    "MV-3": {
+      label: "Form MV-3 (Motor Vehicle Verification of Fair Market Value) — Pennsylvania",
+      path: "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-fact-sheets/fs-mvmv.pdf",
+    },
+    "MV-44": {
+      label: "Form MV-44 (Application for Duplicate Registration Card or Replacement Plate) — Pennsylvania",
+      path: "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-forms/mv-44.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MV-38O" },
+    { keyword: "replacement title", code: "MV-38O" },
+    { keyword: "lost title", code: "MV-38O" },
+    { keyword: "power of attorney", code: "MV-POA" },
+    { keyword: "bill of sale", code: "MV-3" },
+    { keyword: "fair market value", code: "MV-3" },
+    { keyword: "duplicate registration", code: "MV-44" },
+  ],
+},
+"Rhode Island": {
+  code: "RI",
+  agencyName: "Rhode Island Division of Motor Vehicles",
+  agencyUrl: "https://dmv.ri.gov/",
+  forms: {
+    "TR-1": {
+      label: "Form TR-1 (Application for Registration and Title Certificate) — Rhode Island",
+      path: "https://dmv.ri.gov/media/1116/download",
+    },
+    "TR-2/TR-9": {
+      label: "Form TR-2/TR-9 (Application for Title / Duplicate Title) — Rhode Island",
+      path: "https://dmv.ri.gov/media/866/download",
+    },
+    "T-334": {
+      label: "Form T-334 (Sales Tax Form) — Rhode Island",
+      path: "https://dmv.ri.gov/media/151/download",
+    },
+    "TR-5": {
+      label: "Form TR-5 (VIN Check Regular or Salvage) — Rhode Island",
+      path: "https://dmv.ri.gov/media/161/download",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "TR-2/TR-9" },
+    { keyword: "replacement", code: "TR-2/TR-9" },
+    { keyword: "lost title", code: "TR-2/TR-9" },
+    { keyword: "new title", code: "TR-1" },
+    { keyword: "registration", code: "TR-1" },
+    { keyword: "sales tax", code: "T-334" },
+    { keyword: "vin check", code: "TR-5" },
+  ],
+},
+SouthCarolina: {
+  code: "SC",
+  agencyName: "South Carolina Department of Motor Vehicles",
+  agencyUrl: "https://dmv.sc.gov/",
+  forms: {
+    "400": {
+      label: "Form 400 (Application for Certificate of Title and/or Registration) — South Carolina",
+      path: "https://dmv.sc.gov/sites/scdmv/files/2026-01/Form%20400.pdf",
+    },
+    "MVR-63": {
+      label: "Form MVR-63 (Power of Attorney) — South Carolina",
+      path: "https://www.ncdot.gov/dmv/downloads/Documents/MVR-63.pdf", // Note: SC often accepts standard notarized POAs
+    },
+    "416": {
+      label: "Form 416 (Notice of Vehicle Sold) — South Carolina",
+      path: "https://dmv.sc.gov/sites/scdmv/files/media/Forms/416.pdf",
+    },
+    "TI-006": {
+      label: "Form TI-006 (Statement of Vehicle Operation) — South Carolina",
+      path: "https://dmv.sc.gov/sites/scdmv/files/media/Forms/TI-006.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "400" },
+    { keyword: "replacement", code: "400" },
+    { keyword: "lost title", code: "400" },
+    { keyword: "new title", code: "400" },
+    { keyword: "registration", code: "400" },
+    { keyword: "sold notice", code: "416" },
+    { keyword: "no sc license", code: "TI-006" },
+  ],
+},
+"South Carolina": {
+  code: "SC",
+  agencyName: "South Carolina Department of Motor Vehicles",
+  agencyUrl: "https://dmv.sc.gov/",
+  forms: {
+    "400": {
+      label: "Form 400 (Application for Certificate of Title and/or Registration) — South Carolina",
+      path: "https://dmv.sc.gov/sites/scdmv/files/2026-01/Form%20400.pdf",
+    },
+    "MVR-63": {
+      label: "Form MVR-63 (Power of Attorney) — South Carolina",
+      path: "https://www.ncdot.gov/dmv/downloads/Documents/MVR-63.pdf", // Note: SC often accepts standard notarized POAs
+    },
+    "416": {
+      label: "Form 416 (Notice of Vehicle Sold) — South Carolina",
+      path: "https://dmv.sc.gov/sites/scdmv/files/media/Forms/416.pdf",
+    },
+    "TI-006": {
+      label: "Form TI-006 (Statement of Vehicle Operation) — South Carolina",
+      path: "https://dmv.sc.gov/sites/scdmv/files/media/Forms/TI-006.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "400" },
+    { keyword: "replacement", code: "400" },
+    { keyword: "lost title", code: "400" },
+    { keyword: "new title", code: "400" },
+    { keyword: "registration", code: "400" },
+    { keyword: "sold notice", code: "416" },
+    { keyword: "no sc license", code: "TI-006" },
+  ],
+},
 };
 
 // Helpers for form matching
