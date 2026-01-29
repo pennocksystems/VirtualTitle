@@ -1438,6 +1438,117 @@ SouthCarolina: {
     { keyword: "no sc license", code: "TI-006" },
   ],
 },
+"South Dakota": {
+  code: "SD",
+  agencyName: "South Dakota Department of Revenue (Motor Vehicle Division)",
+  agencyUrl: "https://dor.sd.gov/individuals/motor-vehicle/",
+  forms: {
+    "1001": {
+      label: "Form 1001 (Motor Vehicle and Boat Title & Registration Application) — South Dakota",
+      path: "https://sddor.seamlessdocs.com/f/1001",
+    },
+    "1002": {
+      label: "Form 1002 (Duplicate Title Application) — South Dakota",
+      path: "https://sddor.seamlessdocs.com/f/1002",
+    },
+    "1023": {
+      label: "Form 1023 (Motor Vehicle Power of Attorney) — South Dakota",
+      path: "https://sddor.seamlessdocs.com/f/1023",
+    },
+    "1025": {
+      label: "Form 1025 (Bill of Sale) — South Dakota",
+      path: "https://sddor.seamlessdocs.com/f/1025",
+    },
+    "1503": {
+      label: "Form 1503 (Lien Release) — South Dakota",
+      path: "https://sddor.seamlessdocs.com/f/1503",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "1002" },
+    { keyword: "replacement", code: "1002" },
+    { keyword: "lost title", code: "1002" },
+    { keyword: "new title", code: "1001" },
+    { keyword: "registration", code: "1001" },
+    { keyword: "power of attorney", code: "1023" },
+    { keyword: "bill of sale", code: "1025" },
+    { keyword: "lien release", code: "1503" },
+  ],
+},
+Tennessee: {
+  code: "TN",
+  agencyName: "Tennessee Department of Revenue (Vehicle Services Division)",
+  agencyUrl: "https://www.tn.gov/revenue/title-and-registration.html",
+  forms: {
+    "RV-F1315201": {
+      label: "Form RV-F1315201 (Multipurpose Application: Duplicate Title, Noting of Lien) — Tennessee",
+      path: "https://www.tn.gov/content/dam/tn/revenue/documents/forms/titlereg/f1315201Fill-in.pdf",
+    },
+    "RV-F1301201": {
+      label: "Form RV-F1301201 (Application for Certificate of Title and Registration) — Tennessee",
+      path: "https://www.tn.gov/content/dam/tn/revenue/documents/forms/titlereg/f1301201Fill-in.pdf",
+    },
+    "RV-F1311401": {
+      label: "Form RV-F1311401 (Power of Attorney for Vehicle Transactions) — Tennessee",
+      path: "https://www.tn.gov/content/dam/tn/revenue/documents/forms/titlereg/f1311401Fill-in.pdf",
+    },
+    "RV-F1310401": {
+      label: "Form RV-F1310401 (Certification of Ownership/Low Value Title) — Tennessee",
+      path: "https://www.tn.gov/content/dam/tn/revenue/documents/forms/titlereg/f1310401Fill-in.pdf",
+    },
+    "Bill of Sale": {
+      label: "Tennessee Bill of Sale (County Standard)",
+      path: "https://www.countyclerkanytime.com/pdf/forms/BK441--Bill%20of%20Sale%20of%20Motor%20Vehicle.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "RV-F1315201" },
+    { keyword: "replacement", code: "RV-F1315201" },
+    { keyword: "lost title", code: "RV-F1315201" },
+    { keyword: "new title", code: "RV-F1301201" },
+    { keyword: "registration", code: "RV-F1301201" },
+    { keyword: "power of attorney", code: "RV-F1311401" },
+    { keyword: "low value", code: "RV-F1310401" },
+    { keyword: "bill of sale", code: "Bill of Sale" },
+  ],
+},
+Texas: {
+  code: "TX",
+  agencyName: "Texas Department of Motor Vehicles (TxDMV)",
+  agencyUrl: "https://www.txdmv.gov/",
+  forms: {
+    "130-U": {
+      label: "Form 130-U (Application for Texas Title and/or Registration) — Texas",
+      path: "https://www.txdmv.gov/sites/default/files/form_files/130-U.pdf",
+    },
+    "VTR-34": {
+      label: "Form VTR-34 (Application for a Certified Copy of Title) — Texas",
+      path: "https://www.txdmv.gov/sites/default/files/form_files/VTR-34.pdf",
+    },
+    "VTR-271": {
+      label: "Form VTR-271 (Limited Power of Attorney for Motor Vehicle Transactions) — Texas",
+      path: "https://www.txdmv.gov/sites/default/files/form_files/VTR-271.pdf",
+    },
+    "VTR-346": {
+      label: "Form VTR-346 (Texas Motor Vehicle Transfer Notification) — Texas",
+      path: "https://www.txdmv.gov/sites/default/files/form_files/VTR-346.pdf",
+    },
+    "14-317": {
+      label: "Form 14-317 (Affidavit of Motor Vehicle Gift Transfer) — Texas",
+      path: "https://comptroller.texas.gov/forms/14-317.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "VTR-34" },
+    { keyword: "certified copy", code: "VTR-34" },
+    { keyword: "lost title", code: "VTR-34" },
+    { keyword: "new title", code: "130-U" },
+    { keyword: "registration", code: "130-U" },
+    { keyword: "power of attorney", code: "VTR-271" },
+    { keyword: "transfer notice", code: "VTR-346" },
+    { keyword: "gift", code: "14-317" },
+  ],
+},
 };
 
 // Helpers for form matching
