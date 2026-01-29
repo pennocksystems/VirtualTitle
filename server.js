@@ -1549,6 +1549,145 @@ Texas: {
     { keyword: "gift", code: "14-317" },
   ],
 },
+Utah: {
+  code: "UT",
+  agencyName: "Utah State Tax Commission (Division of Motor Vehicles)",
+  agencyUrl: "https://dmv.utah.gov/",
+  forms: {
+    "TC-656": {
+      label: "Form TC-656 (Vehicle Application for Utah Title) — Utah",
+      path: "https://files.tax.utah.gov/tax/forms/current/tc-656.pdf",
+    },
+    "TC-123": {
+      label: "Form TC-123 (Application for Utah Duplicate Title) — Utah",
+      path: "https://files.tax.utah.gov/tax/forms/current/tc-123.pdf",
+    },
+    "TC-121": {
+      label: "Form TC-121 (Motor Vehicle Power of Attorney) — Utah",
+      path: "https://files.tax.utah.gov/tax/forms/current/tc-121.pdf",
+    },
+    "TC-843": {
+      label: "Form TC-843 (Bill of Sale) — Utah",
+      path: "https://files.tax.utah.gov/tax/forms/current/tc-843.pdf",
+    },
+    "TC-661": {
+      label: "Form TC-661 (Certificate of Inspection) — Utah",
+      path: "https://files.tax.utah.gov/tax/forms/current/tc-661.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "TC-123" },
+    { keyword: "replacement", code: "TC-123" },
+    { keyword: "lost title", code: "TC-123" },
+    { keyword: "new title", code: "TC-656" },
+    { keyword: "registration", code: "TC-656" },
+    { keyword: "power of attorney", code: "TC-121" },
+    { keyword: "bill of sale", code: "TC-843" },
+    { keyword: "vin inspection", code: "TC-661" },
+  ],
+},
+Vermont: {
+  code: "VT",
+  agencyName: "Vermont Department of Motor Vehicles",
+  agencyUrl: "https://dmv.vermont.gov/",
+  forms: {
+    "VD-119": {
+      label: "Form VD-119 (Registration, Tax, and Title Application) — Vermont",
+      path: "https://dmv.vermont.gov/sites/dmv/files/documents/VD-119-Vehicle_Registration_Tax_Title.pdf",
+    },
+    "VT-004": {
+      label: "Form VT-004 (Replacement Title Application) — Vermont",
+      path: "https://dmv.vermont.gov/sites/dmv/files/documents/VT-004-Replacement_Title.pdf",
+    },
+    "VT-005": {
+      label: "Form VT-005 (Bill of Sale and Odometer Disclosure Statement) — Vermont",
+      path: "https://dmv.vermont.gov/sites/dmv/files/documents/VT-005-Bill_of_Sale_ODS.pdf",
+    },
+    "VT-008": {
+      label: "Form VT-008 (Lien Release) — Vermont",
+      path: "https://dmv.vermont.gov/sites/dmv/files/documents/VT-008-Release_Of_Lien.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "VT-004" },
+    { keyword: "replacement", code: "VT-004" },
+    { keyword: "lost title", code: "VT-004" },
+    { keyword: "new title", code: "VD-119" },
+    { keyword: "registration", code: "VD-119" },
+    { keyword: "bill of sale", code: "VT-005" },
+    { keyword: "odometer", code: "VT-005" },
+    { keyword: "lien release", code: "VT-008" },
+  ],
+},
+Virginia: {
+  code: "VA",
+  agencyName: "Virginia Department of Motor Vehicles",
+  agencyUrl: "https://www.dmv.virginia.gov/",
+  forms: {
+    "VSA 17A": {
+      label: "Form VSA 17A (Application for Certificate of Title and Registration) — Virginia",
+      path: "https://www.dmv.virginia.gov/sites/default/files/forms/vsa17a.pdf",
+    },
+    "VSA 67": {
+      label: "Form VSA 67 (Application for Replacement and Substitute Titles) — Virginia",
+      path: "https://www.dmv.virginia.gov/sites/default/files/forms/vsa67.pdf",
+    },
+    "VSA 70": {
+      label: "Form VSA 70 (Power of Attorney to Sign for Owner) — Virginia",
+      path: "https://www.dmv.virginia.gov/sites/default/files/forms/vsa70.pdf",
+    },
+    "SUT 1": {
+      label: "Form SUT 1 (Vehicle Price Certification) — Virginia",
+      path: "https://www.dmv.virginia.gov/sites/default/files/forms/sut1.pdf",
+    },
+    "VSA 66": {
+      label: "Form VSA 66 (Application for Supplemental and Transfer Liens) — Virginia",
+      path: "https://www.dmv.virginia.gov/sites/default/files/forms/vsa66.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "VSA 67" },
+    { keyword: "replacement", code: "VSA 67" },
+    { keyword: "lost title", code: "VSA 67" },
+    { keyword: "new title", code: "VSA 17A" },
+    { keyword: "registration", code: "VSA 17A" },
+    { keyword: "power of attorney", code: "VSA 70" },
+    { keyword: "bill of sale", code: "SUT 1" },
+    { keyword: "lien transfer", code: "VSA 66" },
+  ],
+},
+Washington: {
+  code: "WA",
+  agencyName: "Washington State Department of Licensing (DOL)",
+  agencyUrl: "https://dol.wa.gov/",
+  forms: {
+    "TD-420-001": {
+      label: "Form TD-420-001 (Vehicle Title Application) — Washington",
+      path: "https://dol.wa.gov/forms/420001.pdf",
+    },
+    "TD-420-040": {
+      label: "Form TD-420-040 (Affidavit of Loss/Release of Interest) — Washington",
+      path: "https://dol.wa.gov/forms/420040.pdf",
+    },
+    "TD-420-065": {
+      label: "Form TD-420-065 (Vehicle/Vessel Bill of Sale) — Washington",
+      path: "https://dol.wa.gov/forms/420065.pdf",
+    },
+    "TD-420-050": {
+      label: "Form TD-420-050 (Vehicle Report of Sale) — Washington",
+      path: "https://dol.wa.gov/forms/420050.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "TD-420-040" },
+    { keyword: "replacement", code: "TD-420-040" },
+    { keyword: "lost title", code: "TD-420-040" },
+    { keyword: "new title", code: "TD-420-001" },
+    { keyword: "registration", code: "TD-420-001" },
+    { keyword: "bill of sale", code: "TD-420-065" },
+    { keyword: "report of sale", code: "TD-420-050" },
+  ],
+},
 };
 
 // Helpers for form matching
