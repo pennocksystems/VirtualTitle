@@ -1096,6 +1096,113 @@ Nevada: {
     { keyword: "bill of sale", code: "MVD-10009" },
   ],
 },
+"New York": {
+  code: "NY",
+  agencyName: "New York State Department of Motor Vehicles",
+  agencyUrl: "https://dmv.ny.gov/",
+  forms: {
+    "MV-82": {
+      label: "Form MV-82 (Vehicle Registration/Title Application) — New York",
+      path: "https://dmv.ny.gov/forms/mv82.pdf",
+    },
+    "MV-902": {
+      label: "Form MV-902 (Application for Duplicate Title) — New York",
+      path: "https://dmv.ny.gov/forms/mv902.pdf",
+    },
+    "MV-912": {
+      label: "Form MV-912 (Vehicle Bill of Sale) — New York",
+      path: "https://dmv.ny.gov/forms/mv912.pdf",
+    },
+    "DTF-802": {
+      label: "Form DTF-802 (Statement of Transaction - Sale or Gift of Motor Vehicle) — New York",
+      path: "https://dmv.ny.gov/forms/dtf802.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MV-902" },
+    { keyword: "replacement", code: "MV-902" },
+    { keyword: "lost title", code: "MV-902" },
+    { keyword: "new title", code: "MV-82" },
+    { keyword: "registration", code: "MV-82" },
+    { keyword: "bill of sale", code: "MV-912" },
+    { keyword: "gift", code: "DTF-802" },
+    { keyword: "sales tax", code: "DTF-802" },
+  ],
+},
+"North Carolina": {
+  code: "NC",
+  agencyName: "North Carolina Division of Motor Vehicles",
+  agencyUrl: "https://www.ncdot.gov/dmv/",
+  forms: {
+    "MVR-1": {
+      label: "Form MVR-1 (Title Application) — North Carolina",
+      path: "https://www.ncdot.gov/dmv/downloads/Documents/MVR-1.pdf",
+    },
+    "MVR-4": {
+      label: "Form MVR-4 (Application for Duplicate Title) — North Carolina",
+      path: "https://www.ncdot.gov/dmv/downloads/Documents/MVR-4.pdf",
+    },
+    "MVR-63": {
+      label: "Form MVR-63 (Power of Attorney) — North Carolina",
+      path: "https://www.ncdot.gov/dmv/downloads/Documents/MVR-63.pdf",
+    },
+    "MVR-180": {
+      label: "Form MVR-180 (Odometer Disclosure Statement) — North Carolina",
+      path: "https://www.ncdot.gov/dmv/downloads/Documents/MVR-180.pdf",
+    },
+    "MVR-181": {
+      label: "Form MVR-181 (Damage Disclosure Statement) — North Carolina",
+      path: "https://www.ncdot.gov/dmv/downloads/Documents/MVR-181.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MVR-4" },
+    { keyword: "replacement", code: "MVR-4" },
+    { keyword: "lost title", code: "MVR-4" },
+    { keyword: "new title", code: "MVR-1" },
+    { keyword: "registration", code: "MVR-1" },
+    { keyword: "power of attorney", code: "MVR-63" },
+    { keyword: "odometer", code: "MVR-180" },
+    { keyword: "damage disclosure", code: "MVR-181" },
+  ],
+},
+"North Dakota": {
+  code: "ND",
+  agencyName: "North Dakota Department of Transportation (Motor Vehicle Division)",
+  agencyUrl: "https://www.dot.nd.gov/motor-vehicle",
+  forms: {
+    "SFN 2872": {
+      label: "Form SFN 2872 (Application for Certificate of Title and Registration) — North Dakota",
+      path: "https://dot.nd.gov/forms/sfn02872.pdf",
+    },
+    "SFN 61982": {
+      label: "Form SFN 61982 (Application for Duplicate Credentials) — North Dakota",
+      path: "https://www.dot.nd.gov/forms/sfn61982.pdf",
+    },
+    "SFN 2888": {
+      label: "Form SFN 2888 (Seller's Certificate and Vehicle Bill of Sale) — North Dakota",
+      path: "https://dot.nd.gov/forms/SFN02888.pdf",
+    },
+    "SFN 18773": {
+      label: "Form SFN 18773 (Reassignment/Odometer Disclosure) — North Dakota",
+      path: "https://www.dot.nd.gov/forms/sfn18773.pdf",
+    },
+    "ND-POA": {
+      label: "Motor Vehicle Power of Attorney — North Dakota",
+      path: "https://www.dot.nd.gov/forms/sfn02903.pdf", // Note: SFN 2903 is often used for Statement of Ownership/POA
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "SFN 61982" },
+    { keyword: "replacement", code: "SFN 61982" },
+    { keyword: "lost title", code: "SFN 61982" },
+    { keyword: "new title", code: "SFN 2872" },
+    { keyword: "registration", code: "SFN 2872" },
+    { keyword: "bill of sale", code: "SFN 2888" },
+    { keyword: "odometer", code: "SFN 18773" },
+    { keyword: "power of attorney", code: "ND-POA" },
+  ],
+},
 };
 
 // Helpers for form matching
