@@ -898,6 +898,108 @@ Missouri: {
     { keyword: "receipt", code: "2519" },
   ],
 },
+Montana: {
+  code: "MT",
+  agencyName: "Montana Department of Justice (Motor Vehicle Division)",
+  agencyUrl: "https://mvdmt.gov/",
+  forms: {
+    "MV1": {
+      label: "Form MV1 (Application for Certificate of Title for a Motor Vehicle) — Montana",
+      path: "https://mvdmt.gov/wp-content/uploads/2023/10/MV1-Application-for-Certificate-of-Title-for-a-Motor-Vehicle-Fillable.pdf",
+    },
+    "MV7": {
+      label: "Form MV7 (Application for Replacement Certificate of Title) — Montana",
+      path: "https://mvdmt.gov/wp-content/uploads/2023/10/MV7-Application-for-Replacement-Certificate-of-Title-Fillable-1.pdf",
+    },
+    "MV65": {
+      label: "Form MV65 (Power of Attorney) — Montana",
+      path: "https://mvdmt.gov/wp-content/uploads/2023/10/MV65-Power-of-Attorney-Fillable.pdf",
+    },
+    "MV24": {
+      label: "Form MV24 (Bill of Sale) — Montana",
+      path: "https://mvdmt.gov/wp-content/uploads/2023/10/MV24-Bill-of-Sale-Fillable.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MV7" },
+    { keyword: "replacement", code: "MV7" },
+    { keyword: "lost title", code: "MV7" },
+    { keyword: "new title", code: "MV1" },
+    { keyword: "registration", code: "MV1" },
+    { keyword: "power of attorney", code: "MV65" },
+    { keyword: "bill of sale", code: "MV24" },
+  ],
+},
+Nebraska: {
+  code: "NE",
+  agencyName: "Nebraska Department of Motor Vehicles",
+  agencyUrl: "https://dmv.nebraska.gov/",
+  forms: {
+    "RV-707": {
+      label: "Form RV-707 (Application for Certificate of Title) — Nebraska",
+      path: "https://dmv.nebraska.gov/sites/dmv.nebraska.gov/files/doc/dvr/forms/titleapp.pdf",
+    },
+    "RV-707a": {
+      label: "Form RV-707a (Application for Duplicate Certificate of Title) — Nebraska",
+      path: "https://dmv.nebraska.gov/sites/dmv.nebraska.gov/files/doc/dvr/forms/dupttlapp.pdf",
+    },
+    "DMV-POA": {
+      label: "Power of Attorney (Vehicle/Motorboat Only) — Nebraska",
+      path: "https://dmv.nebraska.gov/sites/dmv.nebraska.gov/files/doc/dvr/forms/poa.pdf",
+    },
+    "Form 6": {
+      label: "Form 6 (Nebraska Sales/Use Tax and Tire Fee Statement) — Nebraska",
+      path: "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/f_6.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "RV-707a" },
+    { keyword: "replacement", code: "RV-707a" },
+    { keyword: "lost title", code: "RV-707a" },
+    { keyword: "new title", code: "RV-707" },
+    { keyword: "registration", code: "RV-707" },
+    { keyword: "power of attorney", code: "DMV-POA" },
+    { keyword: "sales tax", code: "Form 6" },
+  ],
+},
+Nevada: {
+  code: "NV",
+  agencyName: "Nevada Department of Motor Vehicles",
+  agencyUrl: "https://dmv.nv.gov/",
+  forms: {
+    "VP 222": {
+      label: "Form VP 222 (Application for Vehicle Registration) — Nevada",
+      path: "https://dmv.nv.gov/pdfforms/vp222.pdf",
+    },
+    "VP 012": {
+      label: "Form VP 012 (Application for Duplicate Nevada Certificate of Title) — Nevada",
+      path: "https://dmv.nv.gov/pdfforms/vp012.pdf",
+    },
+    "VP 136": {
+      label: "Form VP 136 (Power of Attorney) — Nevada",
+      path: "https://dmv.nv.gov/pdfforms/vp136.pdf",
+    },
+    "VP 104": {
+      label: "Form VP 104 (Bill of Sale) — Nevada",
+      path: "https://dmv.nv.gov/pdfforms/vp104.pdf",
+    },
+    "VP 265": {
+      label: "Form VP 265 (Application for Expedited Processing of Nevada Title) — Nevada",
+      path: "https://dmv.nv.gov/pdfforms/vp265.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "VP 012" },
+    { keyword: "replacement", code: "VP 012" },
+    { keyword: "lost title", code: "VP 012" },
+    { keyword: "new title", code: "VP 222" },
+    { keyword: "registration", code: "VP 222" },
+    { keyword: "power of attorney", code: "VP 136" },
+    { keyword: "bill of sale", code: "VP 104" },
+    { keyword: "expedited", code: "VP 265" },
+    { keyword: "rush", code: "VP 265" },
+  ],
+},
 };
 
 // Helpers for form matching
