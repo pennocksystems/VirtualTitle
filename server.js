@@ -1203,6 +1203,113 @@ Nevada: {
     { keyword: "power of attorney", code: "ND-POA" },
   ],
 },
+Ohio: {
+  code: "OH",
+  agencyName: "Ohio Bureau of Motor Vehicles (and County Clerks of Courts)",
+  agencyUrl: "https://www.bmv.ohio.gov/",
+  forms: {
+    "BMV 3774": {
+      label: "Form BMV 3774 (Application for Certificate of Title to a Motor Vehicle) — Ohio",
+      path: "https://dam.assets.ohio.gov/raw/upload/publicsafety.ohio.gov/bmv3774.doc",
+    },
+    "BMV 3771": {
+      label: "Form BMV 3771 (Power of Attorney for Certificate of Title) — Ohio",
+      path: "https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/bmv3771.pdf",
+    },
+    "BMV 4625": {
+      label: "Form BMV 4625 (Application for Registration by Mail) — Ohio",
+      path: "https://publicsafety.ohio.gov/links/bmv4625.pdf",
+    },
+    "BMV 3773": {
+      label: "Form BMV 3773 (Surviving Spouse Affidavit) — Ohio",
+      path: "https://clerkofcourts.bcohio.gov/title_division/docs/BMV_3773.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "BMV 3774" },
+    { keyword: "replacement", code: "BMV 3774" },
+    { keyword: "lost title", code: "BMV 3774" },
+    { keyword: "new title", code: "BMV 3774" },
+    { keyword: "registration", code: "BMV 4625" },
+    { keyword: "power of attorney", code: "BMV 3771" },
+    { keyword: "surviving spouse", code: "BMV 3773" },
+    { keyword: "inheritance", code: "BMV 3773" },
+  ],
+},
+Oklahoma: {
+  code: "OK",
+  agencyName: "Service Oklahoma (Motor Vehicle Services)",
+  agencyUrl: "https://service.ok.gov/",
+  forms: {
+    "701-6": {
+      label: "Form 701-6 (Application for Oklahoma Certificate of Title) — Oklahoma",
+      path: "https://oklahoma.gov/content/dam/service-oklahoma/Documents/mv-forms/701-6%20Vehicle-Trailer-Manuf%20Home%20Certificate%20of%20Title.pdf",
+    },
+    "701-7": {
+      label: "Form 701-7 (Application for Replacement/Duplicate Certificate of Title) — Oklahoma",
+      path: "https://oklahoma.gov/content/dam/service-oklahoma/Documents/mv-forms/license-plate/701-7%20Replacement%20Title%20for%20VehicleBoatMotor.pdf",
+    },
+    "701-5": {
+      label: "Form 701-5 (Title Print Request - To convert E-Title to Paper) — Oklahoma",
+      path: "https://ok-online.us/okforms/701-5.pdf",
+    },
+    "718": {
+      label: "Form 718 (Bill of Sale for a Vehicle with an Electronic Title) — Oklahoma",
+      path: "https://oklahoma.gov/content/dam/service-oklahoma/Documents/mv-forms/718%20Bill%20of%20Sale%20for%20Electronic%20Title.pdf",
+    },
+    "773": {
+      label: "Form 773 (Notice of Transfer of Ownership) — Oklahoma",
+      path: "https://oklahoma.gov/content/dam/service-oklahoma/Documents/mv-forms/773%20Notice%20of%20Transfer%20of%20Ownership.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "701-7" },
+    { keyword: "replacement", code: "701-7" },
+    { keyword: "lost title", code: "701-7" },
+    { keyword: "new title", code: "701-6" },
+    { keyword: "registration", code: "701-6" },
+    { keyword: "e-title print", code: "701-5" },
+    { keyword: "bill of sale", code: "718" },
+    { keyword: "notice of transfer", code: "773" },
+  ],
+},
+Oregon: {
+  code: "OR",
+  agencyName: "Oregon Driver and Motor Vehicle Services (DMV)",
+  agencyUrl: "https://www.oregon.gov/odot/dmv/",
+  forms: {
+    "735-226": {
+      label: "Form 735-226 (Application for Title and Registration) — Oregon",
+      path: "https://www.oregon.gov/odot/forms/dmv/226fill.pdf",
+    },
+    "735-515": {
+      label: "Form 735-515 (Application for Replacement / Duplicate Title) — Oregon",
+      path: "https://www.oregon.gov/odot/forms/dmv/515fill.pdf",
+    },
+    "735-500": {
+      label: "Form 735-500 (Motor Vehicle Power of Attorney) — Oregon",
+      path: "https://www.oregon.gov/odot/forms/dmv/500fill.pdf",
+    },
+    "735-501": {
+      label: "Form 735-501 (Vehicle Bill of Sale) — Oregon",
+      path: "https://www.oregon.gov/odot/forms/dmv/501fill.pdf",
+    },
+    "735-6890": {
+      label: "Form 735-6890 (Notice of Sale / Plate Release) — Oregon",
+      path: "https://www.oregon.gov/odot/forms/dmv/6890fill.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "735-515" },
+    { keyword: "replacement", code: "735-515" },
+    { keyword: "lost title", code: "735-515" },
+    { keyword: "new title", code: "735-226" },
+    { keyword: "registration", code: "735-226" },
+    { keyword: "power of attorney", code: "735-500" },
+    { keyword: "bill of sale", code: "735-501" },
+    { keyword: "notice of sale", code: "735-6890" },
+  ],
+},
 };
 
 // Helpers for form matching
