@@ -1688,6 +1688,108 @@ Washington: {
     { keyword: "report of sale", code: "TD-420-050" },
   ],
 },
+"West Virginia": {
+  code: "WV",
+  agencyName: "West Virginia Division of Motor Vehicles",
+  agencyUrl: "https://transportation.wv.gov/dmv/",
+  forms: {
+    "DMV-1-TR": {
+      label: "Form DMV-1-TR (Application for Certificate of Title) — West Virginia",
+      path: "https://transportation.wv.gov/dmv/DMVFormSearch/DMV-1-TR_Certificate-for-Title-of-Motor-Vehicle-wf.pdf",
+    },
+    "DMV-4-TR": {
+      label: "Form DMV-4-TR (Affidavit of Duplicate Title) — West Virginia",
+      path: "https://transportation.wv.gov/dmv/DMVFormSearch/DMV-4-TR_Application-for-Duplicate-Title-for-a-Motor-Vehicle-wf.pdf",
+    },
+    "DMV-9-TR": {
+      label: "Form DMV-9-TR (Motor Vehicle Power of Attorney) — West Virginia",
+      path: "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-9-TR-wf.pdf",
+    },
+    "DMV-7-TR": {
+      label: "Form DMV-7-TR (Bill of Sale) — West Virginia",
+      path: "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-7-TR-wf.pdf",
+    },
+    "DMV-5-TR": {
+      label: "Form DMV-5-TR (Affidavit of Transfer of Ownership Without Consideration) — West Virginia",
+      path: "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-5-TR-wf.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "DMV-4-TR" },
+    { keyword: "replacement", code: "DMV-4-TR" },
+    { keyword: "lost title", code: "DMV-4-TR" },
+    { keyword: "new title", code: "DMV-1-TR" },
+    { keyword: "registration", code: "DMV-1-TR" },
+    { keyword: "power of attorney", code: "DMV-9-TR" },
+    { keyword: "bill of sale", code: "DMV-7-TR" },
+    { keyword: "gift", code: "DMV-5-TR" },
+  ],
+},
+Wisconsin: {
+  code: "WI",
+  agencyName: "Wisconsin Department of Transportation (WisDOT)",
+  agencyUrl: "https://wisconsindot.gov/",
+  forms: {
+    "MV1": {
+      label: "Form MV1 (Wisconsin Title and License Plate Application) — Wisconsin",
+      path: "https://wisconsindot.gov/Documents/formdocs/mv1.pdf",
+    },
+    "MV2119": {
+      label: "Form MV2119 (Replacement Title Application) — Wisconsin",
+      path: "https://wisconsindot.gov/Documents/formdocs/mv2119.pdf",
+    },
+    "MV2489": {
+      label: "Form MV2489 (Statement of Intent / Bill of Sale) — Wisconsin",
+      path: "https://wisconsindot.gov/Documents/formdocs/mv2489.pdf",
+    },
+    "MV2323": {
+      label: "Form MV2323 (Power of Attorney) — Wisconsin",
+      path: "https://wisconsindot.gov/Documents/formdocs/mv2323.pdf",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "MV2119" },
+    { keyword: "replacement", code: "MV2119" },
+    { keyword: "lost title", code: "MV2119" },
+    { keyword: "new title", code: "MV1" },
+    { keyword: "registration", code: "MV1" },
+    { keyword: "bill of sale", code: "MV2489" },
+    { keyword: "power of attorney", code: "MV2323" },
+  ],
+},
+Wyoming: {
+  code: "WY",
+  agencyName: "Wyoming Department of Transportation (and County Clerks)",
+  agencyUrl: "http://www.dot.state.wy.us/home/titles_plates_registration.html",
+  forms: {
+    "MV-300-A": {
+      label: "Form MV-300-A (Application for Certificate of Title and VIN Inspection) — Wyoming",
+      path: "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Motor%20Vehicle%20Services/2020%20TITLE%20APP-VIN%20INSPECTION%20FORM%20-%20FEB%202020.pdf",
+    },
+    "DuplicateTitle": {
+      label: "Affidavit and Application for Duplicate Certificate of Title — Wyoming",
+      path: "https://goshencounty.org/DocumentCenter/View/123/Duplicate-Title-Application-PDF", // Note: Forms vary slightly by county but are standardized in content
+    },
+    "MV-147": {
+      label: "Form MV-147 (Wyoming Affidavit of Vehicle Ownership) — Wyoming",
+      path: "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Motor%20Vehicle%20Services/MV-147%20WY%20AFFIDAVIT%20OF%20OWNERSHIP.pdf",
+    },
+    "BillOfSale": {
+      label: "Wyoming Vehicle Bill of Sale — Wyoming",
+      path: "https://www.natronacounty-wy.gov/DocumentCenter/View/277/Bill-of-Sale",
+    },
+  },
+  keywordMap: [
+    { keyword: "duplicate", code: "DuplicateTitle" },
+    { keyword: "replacement", code: "DuplicateTitle" },
+    { keyword: "lost title", code: "DuplicateTitle" },
+    { keyword: "new title", code: "MV-300-A" },
+    { keyword: "vin inspection", code: "MV-300-A" },
+    { keyword: "registration", code: "MV-300-A" },
+    { keyword: "affidavit of ownership", code: "MV-147" },
+    { keyword: "bill of sale", code: "BillOfSale" },
+  ],
+},
 };
 
 // Helpers for form matching
